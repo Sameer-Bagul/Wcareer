@@ -1,0 +1,21 @@
+- User will come and set up their account page with all their data.
+- User will take an aptitude test to assess their skills.
+- User will take cognitive and psychometric tests to further evaluate their skills.
+- User will explore the latest in-demand skills and select the ones they want to learn.
+- Based on the test scores, a personalized roadmap will be generated for the user.
+- User will follow the roadmap to start learning the selected skills.
+
+---
+
+- User can use the Learn Bot feature to enhance their skills.
+- User can create and download their resume.
+- User can retake tests to reassess their skills.
+- User can take interview tests to evaluate their readiness.
+- User can find the latest job opportunities on the Jobs portal.
+- User can find the latest internships on the Internship portal.
+- User can find the latest projects on the Projects portal.
+- User can view the leaderboard to see top learners.
+- User can check the Community Thread page for updates and posts.
+- User can access tools like PDF summarizer, YouTube video summarizer, etc., to enhance their skills.
+- User can participate in coding challenges and quizzes to improve their skills.
+- User can earn badges and certificates for completing courses and challenges.

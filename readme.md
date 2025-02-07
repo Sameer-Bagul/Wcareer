@@ -1,145 +1,129 @@
 # **Skillify (WCareers.ai)**
 
-Skillify is an **AI-powered career guidance platform** designed to help individuals navigate their career journeys by offering personalized **job recommendations**, **skill development** tools, **interview preparation**, and **roadmap generation** for various fields. The platform leverages **Generative AI** and **Machine Learning** to provide a seamless learning and career development experience.
+**Skillify** is an AI-powered career guidance platform designed to help users with **job recommendations**, **skill development**, **interview preparation**, and **personalized career roadmaps**.
 
-## **Features**
-
-### **Core Features:**
-1. **Resume Wizard**
-   - **AI Resume Enhancer:** Improves resumes using NLP techniques and industry-specific keywords.
-   - **Smart Resume Maker:** Provides real-time suggestions for creating effective resumes.
-   - **Tech Stack:** Python (NLTK, SpaCy), OpenAI GPT
-
-2. **Mock Interviews & AI Feedback**
-   - **AI Interview Bot:** Simulates mock interviews using fine-tuned LLM models.
-   - **Voice & Sentiment Analysis:** Evaluates tone and confidence using speech recognition.
-   - **Tech Stack:** Python, Hugging Face Transformers, OpenAI GPT, SpeechRecognition
-
-3. **Cognitive, Technical & Personality Assessments**
-   - Adaptive technical skill tests and gamified cognitive tests.
-   - AI-based personality assessments to provide tailored career recommendations.
-   - **Tech Stack:** Python, TensorFlow, Scikit-learn
-
-4. **AI-Powered Career Roadmaps**
-   - **Roadmap Generation:** AI-powered step-by-step career progression guides.
-   - Personalized learning paths based on individual assessments and market trends.
-   - **Tech Stack:** Python, OpenAI GPT, Pandas, Scikit-learn
-
-5. **Personalized Job & Internship Recommendations**
-   - Machine learning algorithms for job matching and internship suggestions.
-   - **Tech Stack:** Python, Scikit-learn, Pandas, Numpy
-
-6. **Skill Enhancements using AI/ML**
-   - Industry trends analysis for skill development.
-   - AI summarization of content for quick learning.
-   - **Tech Stack:** OpenAI GPT, LangChain, Hugging Face Transformers
-
-7. **Community & Peer Learning**
-   - AI-powered discussion forums with automatic summarization and misinformation detection.
-   - Collaboration tools for knowledge-sharing and networking.
-   - **Tech Stack:** MERN (MongoDB, Express.js, React, Node.js), OpenAI GPT
-
-8. **Skill Graph Representation**
-   - Visual representation of skills as nodes in a Graph Database.
-   - Helps users visualize the interconnection of various technical, soft, and domain-specific skills.
-   - **Tech Stack:** Neo4j, Python, NetworkX
-
-## **LLM-Based Roadmap Generation**
-One of the core features of **Skillify** is the **Roadmap Generation** powered by **LLM models** (Large Language Models). This application helps users generate personalized career roadmaps based on a variety of input topics such as **programming languages**, **soft skills**, **industry roles**, and more.
-
-### **Main Components:**
-1. **Frontend (React + Vite)**
-   - A user-friendly interface for inputting topics and receiving personalized roadmaps.
-   - Visualizing generated roadmaps with easy-to-read steps and milestones.
-   - Connecting to the **backend API** for seamless roadmap generation.
-
-2. **Backend (Node.js & Express)**
-   - Handles requests from the frontend.
-   - Manages user sessions, preferences, and stores the generated roadmaps in the database.
-   - Integrates with the **LLM server** to process and generate roadmaps based on input topics.
-
-3. **LLM Server (Python-based)**
-   - Hosts a **Large Language Model** (e.g., GPT-4, LLaMA) for generating structured, personalized roadmaps.
-   - This server processes the input data and returns AI-generated step-by-step roadmaps in JSON format.
+## **Features:**
+- **Resume Wizard**: AI-powered resume enhancements with smart suggestions.
+- **Mock Interviews**: AI-driven mock interviews with feedback on tone and confidence.
+- **Technical & Personality Assessments**: Adaptive tests for technical skills and personality insights.
+- **AI-Powered Career Roadmaps**: Personalized step-by-step guides for career progression.
+- **Job & Internship Recommendations**: Machine learning-based matching for personalized opportunities.
+- **Skill Enhancements**: AI suggestions for skill improvement based on industry trends.
+- **Community & Peer Learning**: AI-powered discussion forums with knowledge-sharing tools.
 
 ---
 
-## **Project Setup**
+## **Folder Structure**
 
-### **1. Prerequisites**
-- **Node.js** (Backend and Frontend)
-- **Python** (LLM Server)
-- **MongoDB** (Database)
+The project is organized into **three main parts**: **Backend (Node.js)**, **Frontend (React)**, and the **LLM Server (Python)**.
 
-### **2. Folder Structure**
-The project is divided into **three main parts**:  
-1. **Backend** - Node.js & Express server  
-2. **Frontend** - React (Vite)  
-3. **LLM Server** - Python-based LLM processing  
-
-The folder structure for the project is as follows:
-
+### **Root Folder:**
 ```
 📦 roadmap-gen-mern
- ┣ 📂 backend          # Node.js & Express server
- ┣ 📂 frontend         # React (Vite) frontend
- ┣ 📂 llm-server       # LLM model server (Python-based or Node.js)
- ┣ 📂 deployment       # Scripts for Docker, PM2, and CI/CD (optional)
+ ┣ 📂 backend          # Backend logic using Node.js & Express
+ ┣ 📂 frontend         # Frontend UI using React (Vite)
+ ┣ 📂 llm-server       # Python-based server for AI model processing
+ ┣ 📂 deployment       # Deployment scripts (Docker, CI/CD, PM2)
  ┣ 📜 README.md        # Project documentation
  ┣ 📜 .gitignore       # Git ignore file
- ┣ 📜 package.json     # Main package.json (if using workspaces)
+ ┣ 📜 package.json     # Main package.json
 ```
 
-### **3. Installation Steps**
+---
 
-#### **Backend Setup:**
-1. Navigate to the **backend** directory:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### **Backend Folder:**
+```
+📂 backend
+ ┣ 📂 src
+ ┃ ┣ 📂 config          # Configurations for the backend
+ ┃ ┣ 📂 controllers     # API request handlers
+ ┃ ┣ 📂 models          # Database models
+ ┃ ┣ 📂 routes          # API routes
+ ┃ ┣ 📂 middleware      # Express middlewares
+ ┃ ┣ 📂 utils           # Helper functions
+ ┃ ┣ 📜 app.js          # Main server file
+ ┃ ┣ 📜 server.js       # Server entry point
+ ┣ 📜 .env              # Environment variables
+ ┣ 📜 package.json      # Backend dependencies
+```
 
-#### **Frontend Setup:**
-1. Navigate to the **frontend** directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+### **Frontend Folder:**
+```
+📂 frontend
+ ┣ 📂 src
+ ┃ ┣ 📂 components      # React components
+ ┃ ┣ 📂 pages           # Pages for different routes
+ ┃ ┣ 📂 context         # React context for global state
+ ┃ ┣ 📂 hooks           # Custom hooks
+ ┃ ┣ 📂 utils           # Utility functions
+ ┃ ┣ 📂 assets          # Images and static files
+ ┃ ┣ 📂 styles          # CSS/SCSS files for styling
+ ┃ ┣ 📜 App.tsx         # Main React component
+ ┃ ┣ 📜 main.tsx        # Entry point for the frontend
+ ┣ 📜 .env              # Environment variables
+ ┣ 📜 vite.config.ts    # Vite configuration
+ ┣ 📜 package.json      # Frontend dependencies
+```
 
-#### **LLM Server Setup:**
-1. Navigate to the **llm-server** directory:
-   ```bash
-   cd llm-server
-   ```
-2. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### **LLM Server Folder:**
+```
+📂 llm-server
+ ┣ 📂 models            # Machine learning model files (e.g., fine-tuned LLM)
+ ┣ 📂 scripts           # Scripts for data processing and training
+ ┣ 📂 utils             # Helper functions for model interaction
+ ┣ 📜 server.py         # Python server to serve LLM API
+ ┣ 📜 requirements.txt  # Python dependencies
+ ┣ 📜 Dockerfile        # Dockerfile for containerizing the LLM server
+ ┣ 📜 README.md         # Documentation for LLM server
+```
 
-### **4. Running the Application**
+---
 
-#### **Backend**  
-To start the backend server:
+## **Getting Started**
+
+### **1. Clone the Repo**
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/roadmap-gen-mern.git
+```
+
+### **2. Install Dependencies**
+Navigate to each folder (backend, frontend, and llm-server) and install the dependencies.
+
+#### **Backend**:
+```bash
+cd backend
+npm install
+```
+
+#### **Frontend**:
+```bash
+cd frontend
+npm install
+```
+
+#### **LLM Server**:
+```bash
+cd llm-server
+pip install -r requirements.txt
+```
+
+### **3. Running the Application**
+
+#### **Backend**:
 ```bash
 cd backend
 npm start
 ```
 
-#### **Frontend**  
-To start the frontend development server:
+#### **Frontend**:
 ```bash
 cd frontend
 npm run dev
 ```
 
-#### **LLM Server**  
-To run the LLM server:
+#### **LLM Server**:
 ```bash
 cd llm-server
 python server.py
@@ -148,17 +132,14 @@ python server.py
 ---
 
 ## **Contributing**
-We welcome contributions to **Skillify**! Feel free to fork the repo and submit pull requests.  
 
-### **Steps to Contribute:**
+Feel free to contribute to **Skillify**! To contribute:
 1. Fork the repository.
-2. Create a new branch for your feature (`git checkout -b feature-name`).
-3. Make your changes and commit (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Submit a pull request.
+2. Create a new branch.
+3. Make changes and submit a pull request.
 
 ---
 
 ## **License**
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
