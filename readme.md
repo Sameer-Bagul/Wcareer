@@ -85,7 +85,7 @@ The project is organized into **three main parts**: **Backend (Node.js)**, **Fro
 Clone the repository to your local machine:
 
 ```bash
-[git clone https://github.com/your-username/roadmap-gen-mern.git](https://github.com/Sameer-Bagul/skillify.git)
+https://github.com/Sameer-Bagul/skillify.git
 ```
 
 ### **2. Install Dependencies**
