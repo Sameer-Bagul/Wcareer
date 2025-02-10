@@ -107,3 +107,18 @@
 ### **Final Thoughts**  
 With these cutting-edge features, **WCareers.ai** is designed to be the ultimate **career development and job opportunity platform**, combining **AI-powered career guidance**, **personalized skill enhancement**, **mock interviews**, and **industry insights**. Whether it's **soft skills development**, **technical assessments**, or **real-time job matching**, this platform offers an end-to-end career solution that helps users **develop the right skills** and **find the best job opportunities**.
 
+---
+## Simple List of Features
+
+1. Personalized Cognitive, Technical & Personality Assessments
+2. AI-Powered Career Roadmaps
+3. Skill Enhancements with Gen AI and ML Models
+4. Smart Resume Builder & Enhancer
+5. Personalized Job & Internship Recommendations
+6. Mock Interviews & AI Feedback
+7. AI-Powered Community & Peer Learning
+8. Skill Graph Representation
+9. Advanced Learning & Development Tools
+10. Personalized Career Coaching
+11. Real-Time Industry Networking & Job Matching
+12. Continuous Learning and Improvement
