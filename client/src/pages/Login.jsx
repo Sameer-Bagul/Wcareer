@@ -133,7 +133,7 @@ const Login = () => {
           </p>
         ) : (
           <p className="text-gray-400 text-center text-xs mt-4">
-            Don&lsquo;t have an account?{' '}
+            Don't have an account?{' '}
             <span 
               onClick={() => setState('Sign Up')}
               className='text-blue-400 cursor-pointer hover:underline'>
