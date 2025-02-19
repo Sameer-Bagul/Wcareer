@@ -1,0 +1,40 @@
+.calendar-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-day {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.day-number {
+  font-weight: bold;
+}
+
+.events {
+  margin-top: 5px;
+}
+
+.event {
+  font-size: small;
+}
+
+.event.work {
+  color: blue;
+}
+
+.event.personal {
+  color: green;
+}
