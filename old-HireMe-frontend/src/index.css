@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "react-vertical-timeline-component/style.min.css";
+
+.required:after {
+  content: " *";
+  color: red;
+}
+
+.progress-bar {
+  transition: width 1s ease-out; /* Smooth transition for width */
+}

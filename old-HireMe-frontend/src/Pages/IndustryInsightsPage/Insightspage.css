@@ -1,0 +1,90 @@
+.page-container {
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+  }
+  
+  /* Header */
+  .header {
+    background: linear-gradient(to right, #2563eb, #7c3aed);
+    color: white;
+    padding: 20px 40px;
+  }
+  
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .header-title h1 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .header-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .header-subtitle p {
+    color: #cbd5e1;
+    font-size: 1rem;
+  }
+  
+  /* Icons */
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .brain-icon {
+    background-color: #3b82f6;
+    border-radius: 50%;
+  }
+  
+  .sparkles-icon {
+    background-color: #f472b6;
+    border-radius: 50%;
+  }
+  
+  /* Grid Layout */
+  .grid-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .grid-item {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Span Utilities */
+  .span-2 {
+    grid-column: span 2;
+  }
+  
+  .span-4 {
+    grid-column: span 4;
+  }
+  
+  .span-rows-2 {
+    grid-row: span 2;
+  }
+  
