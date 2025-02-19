@@ -1,4 +1,3 @@
-import React from "react";
 import PunjabStateMap from "../images/punjab_map_illustration.png";
 const HeroSection = () => {
   return (
