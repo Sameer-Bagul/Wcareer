@@ -21,6 +21,10 @@ import TechnicalTestPage from "./pages/TechnicalTestPage";
 import TechnicalTestInterface from "./pages/TechnicalTestInterface";
 import TechnicalTestResultPage from "./pages/TechnicalTestResultPage";
 import PersonalizedRoadmap from "./pages/PersonalizedRoadmap";
+import CognitiveTest from "./pages/CognitiveTest";
+import SpotOn from "./Pages/CognitiveGames/SpotOn";
+import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
+
 function App() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
@@ -39,10 +43,10 @@ function App() {
 
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route
+          {/* <Route
             path="/dashboard/my-roadmap"
             element={<PersonalizedRoadmap />}
-          />
+          /> */}
           <Route path="/research-assistant" element={<ResearchAssistant />} />
           <Route path="/interview" element={<Interview />} />
           <Route path="/resume-builder" element={<ResumeBuilder />} />
@@ -64,6 +68,9 @@ function App() {
             element={<TechnicalTestResultPage />}
           />
           <Route path="dashboard/roadmap" element={<PersonalizedRoadmap />} />
+          <Route path="dashboard/cognitive-test" element={<CognitiveTest />} />
+          <Route path="spotOn" element={<SpotOn />} />
+          <Route path="brainSwitch" element={<BrainSwitch />} />
         </Routes>
       </div>
       <ToastContainer />

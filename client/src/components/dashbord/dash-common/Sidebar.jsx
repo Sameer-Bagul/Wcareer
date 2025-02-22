@@ -44,7 +44,7 @@ const SIDEBAR_ITEMS = [
     name: "Cognitive Test",
     icon: Brain,
     color: "#532D69",
-    href: "/cognitive-test",
+    href: "dashboard/cognitive-test",
   },
   {
     name: "Psychometric Test",
