@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "this is the MERN stack Authentication application to learn about the JWT authentication",
-  "main": "server.js", 
+  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js",

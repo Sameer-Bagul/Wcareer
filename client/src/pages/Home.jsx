@@ -1,5 +1,5 @@
-import Header from "../components/Header"
-import Navabr from "../components/Navabr"
+import Header from "../components/home-common/Header"
+import Navabr from "../components/home-common/Navabr"
 
 const Home = () => {
   return (
