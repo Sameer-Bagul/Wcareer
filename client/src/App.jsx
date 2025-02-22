@@ -9,10 +9,6 @@ import EmailVerify from "./pages/EmailVerify";
 import ResetPassword from "./pages/ResetPassword";
 
 import Dashboard from "./pages/dashboard/Dashboard";
-import MyRoadmap from "./pages/dashboard/MyRoadmap";
-import TechnicalTest from "./pages/dashboard/TechnicalTest";
-import CognitiveTest from "./pages/dashboard/CognitiveTest";
-import PsychometricTest from "./pages/dashboard/PsychometricTest";
 import ResearchAssistant from "./pages/dashboard/ResearchAssistant";
 import Interview from "./pages/dashboard/Interview";
 import ResumeBuilder from "./pages/dashboard/ResumeBuilder";
@@ -24,6 +20,7 @@ import Settings from "./pages/dashboard/settings";
 import TechnicalTestPage from "./pages/TechnicalTestPage";
 import TechnicalTestInterface from "./pages/TechnicalTestInterface";
 import TechnicalTestResultPage from "./pages/TechnicalTestResultPage";
+import PersonalizedRoadmap from "./pages/PersonalizedRoadmap";
 function App() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
@@ -42,7 +39,10 @@ function App() {
 
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/my-roadmap" element={<MyRoadmap />} />
+          <Route
+            path="/dashboard/my-roadmap"
+            element={<PersonalizedRoadmap />}
+          />
           <Route path="/research-assistant" element={<ResearchAssistant />} />
           <Route path="/interview" element={<Interview />} />
           <Route path="/resume-builder" element={<ResumeBuilder />} />
@@ -60,9 +60,10 @@ function App() {
             element={<TechnicalTestInterface />}
           />
           <Route
-            path="technical-test-result"
+            path="dashboard/technical-test-result"
             element={<TechnicalTestResultPage />}
           />
+          <Route path="dashboard/roadmap" element={<PersonalizedRoadmap />} />
         </Routes>
       </div>
       <ToastContainer />
