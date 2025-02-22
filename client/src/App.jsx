@@ -29,7 +29,12 @@ function App() {
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
+<<<<<<< HEAD
+    <div className="flex h-screen  bg-[#F8F7F3] ">
+      
+=======
     <div className="flex h-screen  bg-[#F8F7F3] text-black-100 overflow-hidden">
+>>>>>>> fc3331148cb369fea8d446d0217bc15f6d73fe4f
       {/* Show Sidebar only on Dashboard pages */}
       {isDashboard && <Sidebar />}
       <div className="flex-1 min-w0 overflow-auto">
