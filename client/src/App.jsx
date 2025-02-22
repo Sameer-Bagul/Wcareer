@@ -1,49 +1,68 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import Sidebar from "./components/dashbord/dash-common/Sidebar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import EmailVerify from "./pages/EmailVerify";
 import ResetPassword from "./pages/ResetPassword";
 
-import DashboardLayout from "./layouts/DashboardLayout";
-import OverviewPage from "./pages/dashboard";
-import ProductsPage from "./pages/dashboard/products";
-import UsersPage from "./pages/dashboard/users";
-import SalesPage from "./pages/dashboard/sales";
-import OrdersPage from "./pages/dashboard/orders";
-import AnalyticsPage from "./pages/dashboard/analytics";
-import SettingsPage from "./pages/dashboard/settings";
+import Dashboard from "./pages/dashboard/Dashboard";
+import MyRoadmap from "./pages/dashboard/MyRoadmap";
+import TechnicalTest from "./pages/dashboard/TechnicalTest";
+import CognitiveTest from "./pages/dashboard/CognitiveTest";
+import PsychometricTest from "./pages/dashboard/PsychometricTest";
+import ResearchAssistant from "./pages/dashboard/ResearchAssistant";
+import Interview from "./pages/dashboard/Interview";
+import ResumeBuilder from "./pages/dashboard/ResumeBuilder";
+import Summarizer from "./pages/dashboard/Summarizer";
+import Recommendations from "./pages/dashboard/Recommendations";
+import CareerPathway from "./pages/dashboard/CareerPathway";
+import CommunityPage from "./pages/dashboard/CommunityPage";
+import Settings from "./pages/dashboard/settings";
 
-const App = () => {
+function App() {
+  const location = useLocation();
+  const isDashboard = location.pathname.startsWith("/dashboard");
+
   return (
-    <div>
-      <ToastContainer />
+    <div className="flex h-screen  bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md text-black-100 overflow-hidden">
+      
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-bg-[#F8F7F3]-900 via-bg-[#F8F7F3]-800 to-bg-[#F8F7F3]-900 opacity-80" />
+        <div className="absolute inset-0 backdrop-blur-sm" />
+      </div>
+
+      {/* Show Sidebar only on Dashboard pages */}
+      {isDashboard && <Sidebar />}
+
       <Routes>
+        {/* Public Pages (No Sidebar) */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/email-verify" element={<EmailVerify />} />
         <Route path="/reset-password" element={<ResetPassword />} />
 
-      
-      {/* Dashboard routes */}
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<OverviewPage />} />
-          <Route path="products" element={<ProductsPage />} />
-          <Route path="users" element={<UsersPage />} />
-          <Route path="sales" element={<SalesPage />} />
-          <Route path="orders" element={<OrdersPage />} />
-          <Route path="analytics" element={<AnalyticsPage />} />
-          <Route path="settings" element={<SettingsPage />} />
-        </Route>
-
-
+        {/* Dashboard Pages (With Sidebar) */}
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard/my-roadmap" element={<MyRoadmap />} />
+        <Route path="/technical-test" element={<TechnicalTest />} />
+        <Route path="/cognitive-test" element={<CognitiveTest />} />
+        <Route path="/psychometric-test" element={<PsychometricTest />} />
+        <Route path="/research-assistant" element={<ResearchAssistant />} />
+        <Route path="/interview" element={<Interview />} />
+        <Route path="/resume-builder" element={<ResumeBuilder />} />
+        <Route path="/summarizer" element={<Summarizer />} />
+        <Route path="/recommendations" element={<Recommendations />} />
+        <Route path="/career-pathway" element={<CareerPathway />} />
+        <Route path="/community-page" element={<CommunityPage />} />
+        <Route path="/dashboard/settings" element={<Settings />} />
       </Routes>
-    </div>
-  )
-}
 
+      <ToastContainer />
+    </div>
+  );
+}
 
 export default App;
