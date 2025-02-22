@@ -46,18 +46,28 @@ function App() {
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
 
-           {/* <Route
+          <Route
             path="/dashboard/my-roadmap"
             element={<PersonalizedRoadmap />}
-          /> */}
-          <Route path="/dashboard/market-insights" element={<MarketInsights />} />
-          <Route path="/dashboard/research-assistant" element={<ResearchAssistant />} />
+          />
+          <Route
+            path="/dashboard/market-insights"
+            element={<MarketInsights />}
+          />
+          <Route
+            path="/dashboard/research-assistant"
+            element={<ResearchAssistant />}
+          />
           <Route path="/dashboard/interview" element={<Interview />} />
           <Route path="/dashboard/resume-builder" element={<ResumeBuilder />} />
           <Route path="/dashboard/summarizer" element={<Summarizer />} />
-          <Route path="/dashboard/recommendations" element={<Recommendations />} />
+          <Route
+            path="/dashboard/recommendations"
+            element={<Recommendations />}
+          />
           <Route path="/dashboard/career-pathway" element={<CareerPathway />} />
           <Route path="/dashboard/community-page" element={<CommunityPage />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
           <Route
             path="/dashboard/technical-test"
             element={<TechnicalTestPage />}
