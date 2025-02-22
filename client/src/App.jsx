@@ -40,7 +40,7 @@ function App() {
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route
-            path="/dashboard/my-roadmap"
+            path="/dashboard/roadmap"
             element={<PersonalizedRoadmap />}
           />
           <Route path="/research-assistant" element={<ResearchAssistant />} />

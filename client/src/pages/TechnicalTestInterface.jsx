@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const TechnicalTestInterface = () => {
@@ -163,7 +163,7 @@ const TechnicalTestInterface = () => {
     localStorage.removeItem("examProgress");
 
     // Navigate to results page
-    navigate("dashboard/technical-test-result");
+    navigate("/dashboard/technical-test-result");
   };
 
   // Loading state
