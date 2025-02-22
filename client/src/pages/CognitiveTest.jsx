@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '@/components/dashbord/dash-common/Header';
 
 // Images for each game (replace with your own image paths)
 import spotOnImage from '../images/cognitive_games/SpotOn.png'; 
@@ -27,7 +28,13 @@ const CognitiveTest = () => {
   };
 
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center px-6 py-8 mx-auto my-5 lg:py-0">
+    <div className="w-full min-h-screen bg-[#F8F7F3]">
+      
+      <div className="w-full">
+        <Header title="Cognitive Test" />
+      </div>
+
+    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto my-5 lg:py-0">
       <div className="w-full bg-purple-100 rounded-lg shadow dark:border md:mt-0 sm:max-w-full xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
@@ -92,6 +99,7 @@ const CognitiveTest = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

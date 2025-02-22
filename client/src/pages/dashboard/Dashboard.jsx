@@ -3,6 +3,7 @@ import Header from "../../components/dashbord/dash-common/Header";
 import SkillProgressChart from "../../components/dashbord/dash-common/SkillProgressChart"; 
 import ToDo from "../../components/dashbord/dash-common/ToDo";
 import Calendar from "../../components/dashbord/dash-common/Calendar"; 
+import Psychometric from "../../components/dashbord/dash-common/PsycometricTest";
 import Notice from "../../components/dashbord/dash-common/Notice"; 
 
 const Dashboard = () => {
@@ -21,8 +22,9 @@ const Dashboard = () => {
 
           
           <div className="flex flex-col gap-6">
-            <div className="bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md p-6 rounded-lg">
+            <div className="bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md p-6 rounded-lg flex flex-col gap-6">
               <ToDo />
+              <Psychometric />
             </div>
             
           </div>
