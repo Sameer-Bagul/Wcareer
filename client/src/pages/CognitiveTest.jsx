@@ -1,29 +1,29 @@
 // pages/CognitiveTest.jsx
 
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 // Images for each game (replace with your own image paths)
-import spotOnImage from '../images/cognitive_games/SpotOn.png'; 
-import brainSwitchImage from '../images/cognitive_games/BrainSwitch.png';
-import numeroImage from '../images/cognitive_games/Numero.png';
+import spotOnImage from "../images/cognitive_games/SpotOn.png";
+import brainSwitchImage from "../images/cognitive_games/BrainSwitch.png";
+import numeroImage from "../images/cognitive_games/Numero.png";
 
 const CognitiveTest = () => {
   const navigate = useNavigate();
 
   // Redirects user to the Spot On game
   const handleSpotOnClick = () => {
-    navigate('/spotOn');
+    navigate("/spotOn");
   };
 
   // Redirects user to the Brain Switch game
   const handleBrainSwitchClick = () => {
-    navigate('/brainSwitch');
+    navigate("/brainSwitch");
   };
 
   // Redirects user to the Numero game
   const handleNumeroClick = () => {
-    navigate('/numero');
+    navigate("/numero");
   };
 
   return (
@@ -41,9 +41,15 @@ const CognitiveTest = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             {/* Spot On Game Card */}
             <div className="flex flex-col bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 w-full max-w-lg p-5">
-              <img className="rounded-t-lg w-80 h-80 object-cover mx-auto" src={spotOnImage} alt="Spot On" />
+              <img
+                className="rounded-t-lg w-80 h-80 object-cover mx-auto"
+                src={spotOnImage}
+                alt="Spot On"
+              />
               <div className="flex flex-col justify-between p-5">
-                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">Spot On</h5>
+                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">
+                  Spot On
+                </h5>
                 <p className="text-gray-500 dark:text-gray-400">
                   Test your sharpness and quick thinking with the Spot On game.
                 </p>
@@ -58,11 +64,18 @@ const CognitiveTest = () => {
 
             {/* Brain Switch Game Card */}
             <div className="flex flex-col bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 w-full max-w-lg p-5">
-              <img className="rounded-t-lg w-80 h-80 object-cover mx-auto" src={brainSwitchImage} alt="Brain Switch" />
+              <img
+                className="rounded-t-lg w-80 h-80 object-cover mx-auto"
+                src={brainSwitchImage}
+                alt="Brain Switch"
+              />
               <div className="flex flex-col justify-between p-5">
-                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">Brain Switch</h5>
+                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">
+                  Brain Switch
+                </h5>
                 <p className="text-gray-500 dark:text-gray-400">
-                  A fast-paced game that tests your ability to switch gears mentally.
+                  A fast-paced game that tests your ability to switch gears
+                  mentally.
                 </p>
                 <button
                   onClick={handleBrainSwitchClick}
@@ -75,11 +88,18 @@ const CognitiveTest = () => {
 
             {/* Numero Game Card */}
             <div className="flex flex-col bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 transform transition-transform duration-300 hover:scale-105 w-full max-w-lg p-5">
-              <img className="rounded-t-lg w-80 h-80 object-cover mx-auto" src={numeroImage} alt="Numero" />
+              <img
+                className="rounded-t-lg w-80 h-80 object-cover mx-auto"
+                src={numeroImage}
+                alt="Numero"
+              />
               <div className="flex flex-col justify-between p-5">
-                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">Numero</h5>
+                <h5 className="text-xl font-bold text-center text-gray-900 dark:text-white">
+                  Numero
+                </h5>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Designed to test your ability to process numbers quickly and accurately.
+                  Designed to test your ability to process numbers quickly and
+                  accurately.
                 </p>
                 <button
                   onClick={handleNumeroClick}

@@ -47,7 +47,7 @@ const SIDEBAR_ITEMS = [
     href: "dashboard/cognitive-test",
   },
   {
-    name: "Psychometric Test",
+    name: "Personality Assessment",
     icon: FileText,
     color: "#532D69",
     href: "dashboard/PersonalityAssessment",
