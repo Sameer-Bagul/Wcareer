@@ -41,28 +41,10 @@ const SIDEBAR_ITEMS = [
     href: "/dashboard/my-roadmap",
   },
   {
-    name: "Technical Test",
-    icon: BarChart2,
-    color: "#532D69",
-    href: "dashboard/technical-test",
-  },
-  {
-    name: "Cognitive Test",
-    icon: Brain,
-    color: "#532D69",
-    href: "/dashboard/cognitive-test",
-  },
-  {
-    name: "Personality Assessment",
-    icon: FileText,
-    color: "#532D69",
-    href: "/dashboard/PersonalityAssessment",
-  },
-  {
     name: "Market Insights",
     icon: ScrollText,
     color: "#532D69",
-    href: "/dashboard/market-insights", // make this page
+    href: "/dashboard/market-insights",
   },
   {
     name: "Research Assistant",
@@ -105,12 +87,6 @@ const SIDEBAR_ITEMS = [
     icon: MessageSquare,
     color: "#3B82F6",
     href: "/dashboard/community-page",
-  },
-  {
-    name: "Settings",
-    icon: Settings,
-    color: "#4B5563",
-    href: "/dashboard/settings",
   },
 ];
 
