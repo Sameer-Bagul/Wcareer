@@ -1,0 +1,619 @@
+{
+  "question": [
+    {
+      "model": "technical_test.question",
+      "pk": 1,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What does G00 command do in CNC programming?",
+        "option_a": "Rapid positioning",
+        "option_b": "Circular interpolation",
+        "option_c": "Coolant on",
+        "option_d": "Tool change",
+        "correct_option": "A",
+        "concept_tag": "CNC basics"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 2,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What is the purpose of the M06 command?",
+        "option_a": "End program",
+        "option_b": "Tool change",
+        "option_c": "Start spindle",
+        "option_d": "Set feed rate",
+        "correct_option": "B",
+        "concept_tag": "Tool handling"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 3,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "Which axis is represented by the Z-coordinate?",
+        "option_a": "Horizontal movement",
+        "option_b": "Vertical movement",
+        "option_c": "Depth movement",
+        "option_d": "Rotational movement",
+        "correct_option": "B",
+        "concept_tag": "Coordinate systems"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 4,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is backlash in CNC machines?",
+        "option_a": "Tool vibration",
+        "option_b": "Inaccuracy in movement",
+        "option_c": "Material deformation",
+        "option_d": "Coolant overflow",
+        "correct_option": "B",
+        "concept_tag": "Machine accuracy"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 5,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What material is commonly used for cutting tools?",
+        "option_a": "Plastic",
+        "option_b": "Carbide",
+        "option_c": "Copper",
+        "option_d": "Wood",
+        "correct_option": "B",
+        "concept_tag": "Tool materials"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 6,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What does the term 'spindle speed' mean?",
+        "option_a": "Speed of tool movement",
+        "option_b": "Rotation speed of spindle",
+        "option_c": "Depth of cut",
+        "option_d": "Feed rate",
+        "correct_option": "B",
+        "concept_tag": "Machining parameters"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 7,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the function of a coolant system in CNC machines?",
+        "option_a": "Reduce heat",
+        "option_b": "Increase speed",
+        "option_c": "Measure torque",
+        "option_d": "Align tools",
+        "correct_option": "A",
+        "concept_tag": "Coolant systems"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 8,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What does the term 'home position' refer to?",
+        "option_a": "Default tool position",
+        "option_b": "Tool origin",
+        "option_c": "Operator console",
+        "option_d": "Emergency stop",
+        "correct_option": "A",
+        "concept_tag": "Machine setup"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 9,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "Which programming language is widely used in CNC?",
+        "option_a": "Java",
+        "option_b": "Python",
+        "option_c": "G-code",
+        "option_d": "C++",
+        "correct_option": "C",
+        "concept_tag": "CNC programming"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 10,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the G02 command used for?",
+        "option_a": "Circular interpolation CW",
+        "option_b": "Circular interpolation CCW",
+        "option_c": "Linear interpolation",
+        "option_d": "End program",
+        "correct_option": "A",
+        "concept_tag": "Circular movements"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 11,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is the difference between climb and conventional milling?",
+        "option_a": "Tool rotation direction",
+        "option_b": "Feed direction",
+        "option_c": "Tool wear rate",
+        "option_d": "All of the above",
+        "correct_option": "D",
+        "concept_tag": "Milling techniques"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 12,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the purpose of tool offset in CNC machines?",
+        "option_a": "Adjust tool position",
+        "option_b": "Compensate for tool wear",
+        "option_c": "Ensure accurate machining",
+        "option_d": "All of the above",
+        "correct_option": "D",
+        "concept_tag": "Tool setup"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 13,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "Which material is most challenging to machine?",
+        "option_a": "Aluminum",
+        "option_b": "Titanium",
+        "option_c": "Copper",
+        "option_d": "Plastic",
+        "correct_option": "B",
+        "concept_tag": "Material properties"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 14,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What does the G90 command indicate?",
+        "option_a": "Absolute programming",
+        "option_b": "Incremental programming",
+        "option_c": "Tool change",
+        "option_d": "Coolant off",
+        "correct_option": "A",
+        "concept_tag": "Programming modes"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 15,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the function of a post-processor in CNC?",
+        "option_a": "Convert CAM output to G-code",
+        "option_b": "Optimize machining speed",
+        "option_c": "Control machine temperature",
+        "option_d": "None of the above",
+        "correct_option": "A",
+        "concept_tag": "CAM integration"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 16,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is tool wear compensation?",
+        "option_a": "Adjusting tool path for wear",
+        "option_b": "Replacing worn tools",
+        "option_c": "Reducing tool speed",
+        "option_d": "Cooling the tool",
+        "correct_option": "A",
+        "concept_tag": "Tool maintenance"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 17,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "Which cutting fluid is most commonly used in CNC?",
+        "option_a": "Water",
+        "option_b": "Oil",
+        "option_c": "Coolant mix",
+        "option_d": "Alcohol",
+        "correct_option": "C",
+        "concept_tag": "Coolant selection"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 18,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What does an end mill cutter do?",
+        "option_a": "Drills holes",
+        "option_b": "Cuts flat surfaces",
+        "option_c": "Engraves patterns",
+        "option_d": "Cuts threads",
+        "correct_option": "B",
+        "concept_tag": "Cutting tools"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 19,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What is dwell time in CNC machining?",
+        "option_a": "Time tool remains stationary",
+        "option_b": "Time for tool change",
+        "option_c": "Delay between operations",
+        "option_d": "Spindle acceleration time",
+        "correct_option": "A",
+        "concept_tag": "Machining delays"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 20,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What does the term 'feed rate' refer to?",
+        "option_a": "Speed of tool rotation",
+        "option_b": "Movement of tool in material",
+        "option_c": "Rate of coolant flow",
+        "option_d": "Spindle speed",
+        "correct_option": "B",
+        "concept_tag": "Machining parameters"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 21,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "Which command is used to stop a program temporarily?",
+        "option_a": "M01",
+        "option_b": "M02",
+        "option_c": "M03",
+        "option_d": "M06",
+        "correct_option": "A",
+        "concept_tag": "Program control"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 22,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What is a tool path?",
+        "option_a": "Path taken by cutting tool",
+        "option_b": "Programming flow",
+        "option_c": "Coolant channel",
+        "option_d": "Spindle trajectory",
+        "correct_option": "A",
+        "concept_tag": "Programming fundamentals"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 23,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is a fixture in CNC machining?",
+        "option_a": "Tool holder",
+        "option_b": "Workpiece holder",
+        "option_c": "Coolant nozzle",
+        "option_d": "Control system",
+        "correct_option": "B",
+        "concept_tag": "Work holding"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 24,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What does the term 'cycle time' mean?",
+        "option_a": "Time to complete one operation",
+        "option_b": "Time to change tools",
+        "option_c": "Time for coolant flow",
+        "option_d": "Spindle rotation time",
+        "correct_option": "A",
+        "concept_tag": "Operation efficiency"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 25,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the function of a CAD system in CNC?",
+        "option_a": "Design parts",
+        "option_b": "Operate CNC machine",
+        "option_c": "Control tool movement",
+        "option_d": "None of the above",
+        "correct_option": "A",
+        "concept_tag": "CAD basics"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 26,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is interpolation in CNC programming?",
+        "option_a": "Tool movement between points",
+        "option_b": "Tool rotation",
+        "option_c": "Spindle speed adjustment",
+        "option_d": "Coolant control",
+        "correct_option": "A",
+        "concept_tag": "Tool movement"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 27,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "Which type of coordinate system is commonly used in CNC?",
+        "option_a": "Polar",
+        "option_b": "Rectangular",
+        "option_c": "Cylindrical",
+        "option_d": "Spherical",
+        "correct_option": "B",
+        "concept_tag": "Coordinate systems"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 28,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is tool chatter?",
+        "option_a": "Unwanted vibration",
+        "option_b": "Coolant flow noise",
+        "option_c": "Spindle rotation error",
+        "option_d": "Tool misalignment",
+        "correct_option": "A",
+        "concept_tag": "Machining issues"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 29,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is the function of a tool turret?",
+        "option_a": "Holds multiple tools",
+        "option_b": "Controls spindle speed",
+        "option_c": "Aligns the workpiece",
+        "option_d": "Measures tool wear",
+        "correct_option": "A",
+        "concept_tag": "Tool storage"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 30,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What does a CNC controller do?",
+        "option_a": "Executes G-code",
+        "option_b": "Designs parts",
+        "option_c": "Measures dimensions",
+        "option_d": "Applies coolant",
+        "correct_option": "A",
+        "concept_tag": "Machine control"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 31,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is the purpose of a safety interlock on CNC machines?",
+        "option_a": "Prevent accidents",
+        "option_b": "Increase speed",
+        "option_c": "Improve machining accuracy",
+        "option_d": "Reduce tool wear",
+        "correct_option": "A",
+        "concept_tag": "Safety systems"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 32,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is a common reason for tool breakage?",
+        "option_a": "Excessive feed rate",
+        "option_b": "Low spindle speed",
+        "option_c": "Improper coolant",
+        "option_d": "Incorrect tool alignment",
+        "correct_option": "A",
+        "concept_tag": "Tool maintenance"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 33,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What does M30 command signify?",
+        "option_a": "Program end and reset",
+        "option_b": "Tool change",
+        "option_c": "Coolant off",
+        "option_d": "Spindle stop",
+        "correct_option": "A",
+        "concept_tag": "Program control"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 34,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is surface finish in CNC machining?",
+        "option_a": "Smoothness of the machined surface",
+        "option_b": "Tool alignment accuracy",
+        "option_c": "Coolant residue",
+        "option_d": "Machining depth",
+        "correct_option": "A",
+        "concept_tag": "Quality control"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 35,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 0,
+        "question_text": "What does the term 'part program' refer to?",
+        "option_a": "Set of instructions for machining",
+        "option_b": "Tool maintenance log",
+        "option_c": "Coolant mixing guide",
+        "option_d": "Machine operation manual",
+        "correct_option": "A",
+        "concept_tag": "Programming basics"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 36,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What is the role of a CNC operator?",
+        "option_a": "Write programs",
+        "option_b": "Operate and monitor machines",
+        "option_c": "Repair tools",
+        "option_d": "Design parts",
+        "correct_option": "B",
+        "concept_tag": "Operator role"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 37,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is threading in CNC machining?",
+        "option_a": "Cutting helical grooves",
+        "option_b": "Drilling a hole",
+        "option_c": "Creating flat surfaces",
+        "option_d": "Cutting sharp edges",
+        "correct_option": "A",
+        "concept_tag": "Advanced machining"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 38,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What does the term 'tool life' refer to?",
+        "option_a": "Time tool remains usable",
+        "option_b": "Tool storage duration",
+        "option_c": "Tool replacement cycle",
+        "option_d": "None of the above",
+        "correct_option": "A",
+        "concept_tag": "Tool longevity"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 39,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 2,
+        "question_text": "What is a G54 command used for?",
+        "option_a": "Set work coordinate system",
+        "option_b": "Stop program",
+        "option_c": "Coolant on",
+        "option_d": "Tool change",
+        "correct_option": "A",
+        "concept_tag": "Coordinate systems"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 40,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 1,
+        "question_text": "What is the main advantage of CNC machining?",
+        "option_a": "High precision",
+        "option_b": "Low cost",
+        "option_c": "Simple setup",
+        "option_d": "Manual control",
+        "correct_option": "A",
+        "concept_tag": "CNC advantages"
+      }
+    },
+    {
+      "model": "technical_test.question",
+      "pk": 41,
+      "fields": {
+        "skill": "CNC Programmer",
+        "yoe": 4,
+        "question_text": "What is peck drilling?",
+        "option_a": "Drilling with intermittent retraction",
+        "option_b": "High-speed drilling",
+        "option_c": "Low-pressure drilling",
+        "option_d": "Drilling without coolant",
+        "correct_option": "A",
+        "concept_tag": "Drilling techniques"
+      }
+    }
+  ]
+}

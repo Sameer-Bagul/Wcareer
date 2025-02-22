@@ -21,45 +21,46 @@ import Recommendations from "./pages/dashboard/Recommendations";
 import CareerPathway from "./pages/dashboard/CareerPathway";
 import CommunityPage from "./pages/dashboard/CommunityPage";
 import Settings from "./pages/dashboard/settings";
+import TechnicalTestPage from "./pages/TechnicalTestPage";
+import TechnicalTestInterface from "./pages/TechnicalTestInterface";
 
 function App() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
-    <div className="flex h-screen  bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md text-black-100 overflow-hidden">
-      
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-bg-[#F8F7F3]-900 via-bg-[#F8F7F3]-800 to-bg-[#F8F7F3]-900 opacity-80" />
-        <div className="absolute inset-0 backdrop-blur-sm" />
-      </div>
-
+    <div className="flex h-screen  bg-[#F8F7F3] text-black-100 overflow-hidden">
       {/* Show Sidebar only on Dashboard pages */}
       {isDashboard && <Sidebar />}
+      <div className="flex-1 min-w0 overflow-auto">
+        <Routes>
+          {/* Public Pages (No Sidebar) */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/email-verify" element={<EmailVerify />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
 
-      <Routes>
-        {/* Public Pages (No Sidebar) */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/email-verify" element={<EmailVerify />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-
-        {/* Dashboard Pages (With Sidebar) */}
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/dashboard/my-roadmap" element={<MyRoadmap />} />
-        <Route path="/technical-test" element={<TechnicalTest />} />
-        <Route path="/cognitive-test" element={<CognitiveTest />} />
-        <Route path="/psychometric-test" element={<PsychometricTest />} />
-        <Route path="/research-assistant" element={<ResearchAssistant />} />
-        <Route path="/interview" element={<Interview />} />
-        <Route path="/resume-builder" element={<ResumeBuilder />} />
-        <Route path="/summarizer" element={<Summarizer />} />
-        <Route path="/recommendations" element={<Recommendations />} />
-        <Route path="/career-pathway" element={<CareerPathway />} />
-        <Route path="/community-page" element={<CommunityPage />} />
-        <Route path="/dashboard/settings" element={<Settings />} />
-      </Routes>
-
+          {/* Dashboard Pages (With Sidebar) */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/my-roadmap" element={<MyRoadmap />} />
+          <Route path="/research-assistant" element={<ResearchAssistant />} />
+          <Route path="/interview" element={<Interview />} />
+          <Route path="/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/summarizer" element={<Summarizer />} />
+          <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/career-pathway" element={<CareerPathway />} />
+          <Route path="/community-page" element={<CommunityPage />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
+          <Route
+            path="/dashboard/technical-test"
+            element={<TechnicalTestPage />}
+          />
+          <Route
+            path="attempt-technical-test"
+            element={<TechnicalTestInterface />}
+          />
+        </Routes>
+      </div>
       <ToastContainer />
     </div>
   );
