@@ -27,13 +27,8 @@ function App() {
   const isDashboard = location.pathname.startsWith("/dashboard");
 
   return (
-    <div className="flex h-screen  bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md text-black-100 overflow-hidden">
+    <div className="flex h-screen  bg-[#F8F7F3] ">
       
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-bg-[#F8F7F3]-900 via-bg-[#F8F7F3]-800 to-bg-[#F8F7F3]-900 opacity-80" />
-        <div className="absolute inset-0 backdrop-blur-sm" />
-      </div>
-
       {/* Show Sidebar only on Dashboard pages */}
       {isDashboard && <Sidebar />}
 
