@@ -50,7 +50,7 @@ const SIDEBAR_ITEMS = [
     name: "Personality Assessment",
     icon: FileText,
     color: "#532D69",
-    href: "/dashboard/psychometric-test",
+    href: "/dashboard/PersonalityAssessment",
   },
   {
     name: "Market Insights",
@@ -64,11 +64,11 @@ const SIDEBAR_ITEMS = [
     color: "#F59E00",
     href: "/dashboard/research-assistant",
   },
-  { 
-    name: "Interview", 
-    icon: Briefcase, 
-    color: "#F59E00", 
-    href: "/dashboard/interview" 
+  {
+    name: "Interview",
+    icon: Briefcase,
+    color: "#F59E00",
+    href: "/dashboard/interview",
   },
   {
     name: "Resume Builder",
@@ -113,8 +113,9 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${isSidebarOpen ? "w-64" : "w-20"
-        }`}
+      className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${
+        isSidebarOpen ? "w-64" : "w-20"
+      }`}
       animate={{ width: isSidebarOpen ? 256 : 80 }}
     >
       <div className="h-screen overflow-y-auto bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-gray-200">
