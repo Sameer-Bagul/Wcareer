@@ -25,6 +25,7 @@ import CognitiveTest from "./pages/CognitiveTest";
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
+import MarketInsights from "./pages/dashboard/MarketInsights";
 
 function App() {
   const location = useLocation();
@@ -44,18 +45,19 @@ function App() {
 
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* <Route
+
+           {/* <Route
             path="/dashboard/my-roadmap"
             element={<PersonalizedRoadmap />}
           /> */}
-          <Route path="/research-assistant" element={<ResearchAssistant />} />
-          <Route path="/interview" element={<Interview />} />
-          <Route path="/resume-builder" element={<ResumeBuilder />} />
-          <Route path="/summarizer" element={<Summarizer />} />
-          <Route path="/recommendations" element={<Recommendations />} />
-          <Route path="/career-pathway" element={<CareerPathway />} />
-          <Route path="/community-page" element={<CommunityPage />} />
-          <Route path="/dashboard/settings" element={<Settings />} />
+          <Route path="/dashboard/market-insights" element={<MarketInsights />} />
+          <Route path="/dashboard/research-assistant" element={<ResearchAssistant />} />
+          <Route path="/dashboard/interview" element={<Interview />} />
+          <Route path="/dashboard/resume-builder" element={<ResumeBuilder />} />
+          <Route path="/dashboard/summarizer" element={<Summarizer />} />
+          <Route path="/dashboard/recommendations" element={<Recommendations />} />
+          <Route path="/dashboard/career-pathway" element={<CareerPathway />} />
+          <Route path="/dashboard/community-page" element={<CommunityPage />} />
           <Route
             path="/dashboard/technical-test"
             element={<TechnicalTestPage />}

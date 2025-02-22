@@ -32,7 +32,7 @@ const SIDEBAR_ITEMS = [
     name: "My Roadmap",
     icon: GanttChart,
     color: "#FF8643",
-    href: "/dashboard/roadmap",
+    href: "/dashboard/my-roadmap",
   },
   {
     name: "Technical Test",
@@ -44,50 +44,61 @@ const SIDEBAR_ITEMS = [
     name: "Cognitive Test",
     icon: Brain,
     color: "#532D69",
-    href: "dashboard/cognitive-test",
+    href: "/dashboard/cognitive-test",
   },
   {
     name: "Personality Assessment",
     icon: FileText,
     color: "#532D69",
-    href: "dashboard/PersonalityAssessment",
+    href: "/dashboard/psychometric-test",
+  },
+  {
+    name: "Market Insights",
+    icon: ScrollText,
+    color: "#532D69",
+    href: "/dashboard/market-insights", // make this page
   },
   {
     name: "Research Assistant",
     icon: Search,
     color: "#F59E00",
-    href: "/research-assistant",
+    href: "/dashboard/research-assistant",
   },
-  { name: "Interview", icon: Briefcase, color: "#F59E00", href: "/interview" },
+  { 
+    name: "Interview", 
+    icon: Briefcase, 
+    color: "#F59E00", 
+    href: "/dashboard/interview" 
+  },
   {
     name: "Resume Builder",
     icon: FileUser,
     color: "#F59E00",
-    href: "/resume-builder",
+    href: "/dashboard/resume-builder",
   },
   {
     name: "Summarizer",
     icon: ScrollText,
     color: "#F59E00",
-    href: "/summarizer",
+    href: "/dashboard/summarizer",
   },
   {
     name: "Recommendations",
     icon: Lightbulb,
     color: "#6366f1",
-    href: "/recommendations",
+    href: "/dashboard/recommendations",
   },
   {
     name: "Career Pathway",
     icon: Route,
     color: "#6366f1",
-    href: "/career-pathway",
+    href: "/dashboard/career-pathway",
   },
   {
     name: "Community Page",
     icon: MessageSquare,
     color: "#3B82F6",
-    href: "/community-page",
+    href: "/dashboard/community-page",
   },
   {
     name: "Settings",
@@ -102,9 +113,8 @@ const Sidebar = () => {
 
   return (
     <motion.div
-      className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${
-        isSidebarOpen ? "w-64" : "w-20"
-      }`}
+      className={`relative z-10 transition-all duration-300 ease-in-out flex-shrink-0 ${isSidebarOpen ? "w-64" : "w-20"
+        }`}
       animate={{ width: isSidebarOpen ? 256 : 80 }}
     >
       <div className="h-screen overflow-y-auto bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-gray-200">

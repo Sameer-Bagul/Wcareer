@@ -22,18 +22,18 @@ const psychometricData = [
 const Psychometric = () => {
 	return (
 		<motion.div
-			className='bg-[#2D3748] bg-opacity-50 backdrop-filter backdrop-blur-lg shadow-md shadow-[#bfbcb2] rounded-xl p-6 border border-gray-700'
+			className='bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md shadow-md shadow-[#bfbcb2] p-6 rounded-lg flex flex-col gap-6'
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.6 }}
 		>
-			<h2 className='text-xl font-semibold text-gray-100 mb-4'>Psychometric Evaluation</h2>
+			<h2 className='text-xl font-semibold text-black-100 mb-4'>Psychometric Evaluation</h2>
 			<div style={{ width: "100%", height: 300 }}>
 				<ResponsiveContainer>
 					<RadarChart cx='50%' cy='50%' outerRadius='80%' data={psychometricData}>
 						<PolarGrid stroke='#4A5568' />
-						<PolarAngleAxis dataKey='subject' stroke='#CBD5E0' />
-						<PolarRadiusAxis angle={30} domain={[0, 150]} stroke='#A0AEC0' />
+						<PolarAngleAxis dataKey='subject' fontSize= '12' stroke='#black' />
+						<PolarRadiusAxis angle={30} domain={[0, 150]} stroke='#black' />
 						<Radar name='User Score' dataKey='Score' stroke='#F59E0B' fill='#F59E0B' fillOpacity={0.6} />
 						<Radar name='Benchmark' dataKey='Benchmark' stroke='#38B2AC' fill='#38B2AC' fillOpacity={0.6} />
 						<Legend />
