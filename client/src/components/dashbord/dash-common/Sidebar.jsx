@@ -50,7 +50,7 @@ const SIDEBAR_ITEMS = [
     name: "Psychometric Test",
     icon: FileText,
     color: "#532D69",
-    href: "/psychometric-test",
+    href: "dashboard/PersonalityAssessment",
   },
   {
     name: "Research Assistant",

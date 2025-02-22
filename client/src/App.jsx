@@ -24,6 +24,7 @@ import PersonalizedRoadmap from "./pages/PersonalizedRoadmap";
 import CognitiveTest from "./pages/CognitiveTest";
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
+import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
 
 function App() {
   const location = useLocation();
@@ -71,6 +72,10 @@ function App() {
           <Route path="dashboard/cognitive-test" element={<CognitiveTest />} />
           <Route path="spotOn" element={<SpotOn />} />
           <Route path="brainSwitch" element={<BrainSwitch />} />
+          <Route
+            path="dashboard/PersonalityAssessment"
+            element={<PersonalityAssessment />}
+          />
         </Routes>
       </div>
       <ToastContainer />
