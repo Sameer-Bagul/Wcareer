@@ -27,6 +27,7 @@ import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
 import MarketInsights from "./pages/dashboard/MarketInsights";
 
+
 function App() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
@@ -58,6 +59,7 @@ function App() {
           <Route path="/dashboard/recommendations" element={<Recommendations />} />
           <Route path="/dashboard/career-pathway" element={<CareerPathway />} />
           <Route path="/dashboard/community-page" element={<CommunityPage />} />
+          <Route path="/dashboard/settings" element={<Settings />} />
           <Route
             path="/dashboard/technical-test"
             element={<TechnicalTestPage />}
