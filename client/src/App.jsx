@@ -25,6 +25,7 @@ import CognitiveTest from "./pages/CognitiveTest";
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
+import MarketInsights from "./pages/dashboard/MarketInsights";
 
 function App() {
   const location = useLocation();
@@ -49,6 +50,7 @@ function App() {
             path="/dashboard/my-roadmap"
             element={<PersonalizedRoadmap />}
           /> */}
+          <Route path="/dashboard/market-insights" element={<MarketInsights />} />
           <Route path="/dashboard/research-assistant" element={<ResearchAssistant />} />
           <Route path="/dashboard/interview" element={<Interview />} />
           <Route path="/dashboard/resume-builder" element={<ResumeBuilder />} />
