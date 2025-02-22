@@ -5,8 +5,10 @@ import {
   LinkIcon, Upload, FileText
 } from 'lucide-react';
 
+import { AppContext } from '@/context/AppContext';
+
 function Settings() {
-  const [profileImage, setProfileImage] = useState("https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&auto=format&fit=crop&q=80");
+  const [profileImage, setProfileImage] = useState("https://res.cloudinary.com/dceysplwm/image/upload/v1740252954/IMG_20241228_134355_yglesr.jpg");
   
   const [resumeFile, setResumeFile] = useState(null);
 
@@ -28,6 +30,35 @@ function Settings() {
     }
   };
 
+  // Update the common input field styles
+  const inputClasses = `
+    mt-2 block w-full rounded-lg border border-gray-300 
+    bg-white/50 backdrop-blur-sm
+    px-4 py-3
+    shadow-sm
+    transition-all duration-200
+    placeholder:text-gray-400
+    focus:border-orange-400 focus:ring-2 focus:ring-orange-200 
+    hover:border-orange-300
+    focus:shadow-orange-100 focus:shadow-lg
+  `;
+
+  const selectClasses = `
+    mt-2 block w-full rounded-lg border border-gray-300 
+    bg-white/50 backdrop-blur-sm
+    px-4 py-3
+    shadow-sm
+    transition-all duration-200
+    focus:border-orange-400 focus:ring-2 focus:ring-orange-200 
+    hover:border-orange-300
+    focus:shadow-orange-100 focus:shadow-lg
+    appearance-none
+    bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"%3E%3Cpath stroke="%236B7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/%3E%3C/svg%3E')] 
+    bg-[length:1.25em_1.25em] 
+    bg-[right_0.5rem_center] 
+    bg-no-repeat
+  `;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -39,13 +70,13 @@ function Settings() {
         <div className="p-8">
           {/* Profile Picture Section */}
           <div className="flex items-center space-x-8 pb-8 border-b">
-            <div className="relative">
+            <div className="relative group">
               <img
                 src={profileImage}
                 alt="Profile"
-                className="w-32 h-32 rounded-full object-cover border-4 border-orange-400"
+                className="w-32 h-32 rounded-full object-cover border-4 border-orange-400 group-hover:border-orange-500 transition-colors"
               />
-              <label className="absolute bottom-0 right-0 bg-orange-500 p-2 rounded-full cursor-pointer hover:bg-orange-600 transition-colors">
+              <label className="absolute bottom-0 right-0 bg-orange-500 p-2 rounded-full cursor-pointer hover:bg-orange-600 transition-colors shadow-lg hover:shadow-xl">
                 <Camera className="w-5 h-5 text-white" />
                 <input type="file" className="hidden" onChange={handleImageChange} accept="image/*" />
               </label>
@@ -58,17 +89,17 @@ function Settings() {
 
           <form className="mt-8 space-y-8">
             {/* Connected Apps */}
-            <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 rounded-lg border border-orange-100">
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <LinkIcon className="w-5 h-5 mr-2 text-orange-500" />
                 Connected Apps
               </h3>
               <div className="flex gap-4">
-                <button className="px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-600 transition-colors">
-                  GitHub
+                <button className="px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-sm hover:shadow-md flex items-center space-x-2">
+                  <span>GitHub</span>
                 </button>
-                <button className="px-4 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600 transition-colors">
-                  LinkedIn
+                <button className="px-6 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-lg hover:from-yellow-600 hover:to-orange-600 transition-all duration-200 shadow-sm hover:shadow-md flex items-center space-x-2">
+                  <span>LinkedIn</span>
                 </button>
               </div>
             </div>
@@ -116,148 +147,237 @@ function Settings() {
             </div>
 
             {/* Personal Information */}
-            <div>
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <User className="w-5 h-5 mr-2 text-orange-500" />
                 Personal Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Full Name</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Full Name
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your full name"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Email</label>
-                  <input type="email" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Email
+                  </label>
+                  <input 
+                    type="email" 
+                    className={inputClasses}
+                    placeholder="your.email@example.com"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Phone Number</label>
-                  <input type="tel" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Phone Number
+                  </label>
+                  <input 
+                    type="tel" 
+                    className={inputClasses}
+                    placeholder="+1 (555) 000-0000"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Gender</label>
-                  <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200">
-                    <option>Select Gender</option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Gender
+                  </label>
+                  <select className={selectClasses}>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
                   </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Date of Birth</label>
-                  <input type="date" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
                 </div>
               </div>
             </div>
 
             {/* Address Information */}
-            <div>
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <MapPin className="w-5 h-5 mr-2 text-orange-500" />
                 Address Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="md:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700">Address</label>
-                  <textarea className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" rows="3"></textarea>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="md:col-span-2 space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Address
+                  </label>
+                  <textarea 
+                    className={`${inputClasses} min-h-[100px] resize-y`}
+                    placeholder="Enter your full address"
+                  ></textarea>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Country</label>
-                  <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200">
-                    <option>Select Country</option>
-                    <option>India</option>
-                    <option>United States</option>
-                    <option>United Kingdom</option>
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Country
+                  </label>
+                  <select className={selectClasses}>
+                    <option value="">Select Country</option>
+                    <option value="India">India</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">State</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    State
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your state"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">District</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    District
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your district"
+                  />
                 </div>
               </div>
             </div>
 
             {/* Professional Information */}
-            <div>
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <Briefcase className="w-5 h-5 mr-2 text-orange-500" />
                 Professional Information
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Job Title</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Job Title
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your job title"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Years of Experience</label>
-                  <input type="number" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Years of Experience
+                  </label>
+                  <input 
+                    type="number" 
+                    className={inputClasses}
+                    placeholder="Enter years of experience"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Domain</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Domain
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your domain"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Skillset</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" placeholder="Separate skills with commas" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Skillset
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="e.g., React, Node.js, Python"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Documents */}
-            <div>
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            {/* Documents & Qualifications */}
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <GraduationCap className="w-5 h-5 mr-2 text-orange-500" />
                 Documents & Qualifications
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Highest Qualification</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Highest Qualification
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your qualification"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Aadhar Number</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Aadhar Number
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your Aadhar number"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">PAN Number</label>
-                  <input type="text" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    PAN Number
+                  </label>
+                  <input 
+                    type="text" 
+                    className={inputClasses}
+                    placeholder="Enter your PAN number"
+                  />
                 </div>
               </div>
             </div>
 
             {/* Password Change */}
-            <div>
-              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white/70 backdrop-blur-sm p-8 rounded-lg border border-orange-100 shadow-sm hover:shadow-md transition-shadow duration-200">
+              <h3 className="flex items-center text-lg font-semibold text-gray-800 mb-6">
                 <Key className="w-5 h-5 mr-2 text-orange-500" />
                 Change Password
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">Old Password</label>
-                  <input type="password" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    Old Password
+                  </label>
+                  <input 
+                    type="password" 
+                    className={`${inputClasses} focus:shadow-red-50`}
+                    placeholder="Enter your current password"
+                  />
                 </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700">New Password</label>
-                  <input type="password" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring focus:ring-orange-200" />
+                <div className="space-y-2 group">
+                  <label className="block text-sm font-medium text-gray-700 group-hover:text-orange-600 transition-colors">
+                    New Password
+                  </label>
+                  <input 
+                    type="password" 
+                    className={`${inputClasses} focus:shadow-green-50`}
+                    placeholder="Enter your new password"
+                  />
                 </div>
               </div>
             </div>
 
             {/* Account Actions */}
-            <div className="pt-6 border-t flex justify-between items-center">
+            <div className="pt-8 border-t flex justify-between items-center">
               <button 
                 type="submit" 
-                className="px-6 py-3 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-lg hover:from-orange-600 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+                className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-lg hover:from-orange-600 hover:to-yellow-600 transition-all duration-200 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 font-medium"
               >
                 Save Changes
               </button>
               <button 
                 type="button" 
-                className="flex items-center px-4 py-2 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-colors"
+                className="flex items-center px-6 py-3 text-red-600 hover:text-red-700 hover:bg-red-50 rounded-lg transition-all duration-200 border border-red-200 hover:border-red-300 shadow-sm hover:shadow-md"
               >
                 <Trash2 className="w-5 h-5 mr-2" />
                 Delete Account
