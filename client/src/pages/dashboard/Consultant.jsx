@@ -3,14 +3,14 @@ import { Upload } from "lucide-react";
 import Header from "@/components/dashbord/dash-common/Header";
 import SummarizerBg from "../../images/Summarizer.png"; // Ensure correct import
 
-export default function Summarizer() {
+export default function Consultant() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeTab, setActiveTab] = useState("website");
 
   return (
     <div className="w-full min-h-screen bg-[#F8F7F3] flex flex-col items-center">
       <div className="w-full">
-        <Header title="Summarizer" />
+        <Header title="AI Career Consultant" />
       </div>
 
       {/* Card with Background Image and Glass Effect */}

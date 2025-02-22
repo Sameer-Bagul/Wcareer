@@ -46,46 +46,36 @@ const SIDEBAR_ITEMS = [
     color: "#532D69",
     href: "/dashboard/market-insights",
   },
-  {
-    name: "Research Assistant",
-    icon: Search,
-    color: "#F59E00",
-    href: "/dashboard/research-assistant",
-  },
+  
   {
     name: "Interview",
     icon: Briefcase,
-    color: "#F59E00",
+    color: "#532D69",
     href: "http://localhost:3001/dashboard",
   },
   {
-    name: "Resume Builder",
+    name: "Resume Analyzer",
     icon: FileUser,
-    color: "#F59E00",
-    href: "/dashboard/resume-builder",
+    color: "#532D69",
+    href: "/dashboard/resume-Analyzer",
   },
   {
-    name: "Summarizer",
+    name: "AI Career Consultant",
     icon: ScrollText,
     color: "#F59E00",
-    href: "/dashboard/summarizer",
+    href: "/dashboard/consultant",
   },
-  {
-    name: "Recommendations",
-    icon: Lightbulb,
-    color: "#6366f1",
-    href: "/dashboard/recommendations",
-  },
+
   {
     name: "Career Pathway",
     icon: Route,
-    color: "#6366f1",
+    color: "#F59E00",
     href: "/dashboard/career-pathway",
   },
   {
     name: "Community Page",
     icon: MessageSquare,
-    color: "#3B82F6",
+    color: "#F59E00",
     href: "/dashboard/community-page",
   },
 ];

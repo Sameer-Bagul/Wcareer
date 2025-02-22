@@ -13,11 +13,9 @@ import ResetPassword from "./pages/ResetPassword";
 
 // Dashboard Pages
 import Dashboard from "./pages/dashboard/Dashboard";
-import ResearchAssistant from "./pages/dashboard/ResearchAssistant";
 import Interview from "./pages/dashboard/Interview";
-import ResumeBuilder from "./pages/dashboard/ResumeBuilder";
-import Summarizer from "./pages/dashboard/Summarizer";
-import Recommendations from "./pages/dashboard/Recommendations";
+import ResumeAnalyzer from "./pages/dashboard/ResumeAnalyzer";
+import Consultant from "./pages/dashboard/Consultant";
 import CareerPathway from "./pages/dashboard/CareerPathway";
 import CommunityPage from "./pages/dashboard/CommunityPage";
 import Settings from "./pages/dashboard/settings";
@@ -80,17 +78,11 @@ function App() {
             path="/dashboard/market-insights"
             element={<MarketInsights />}
           />
-          <Route
-            path="/dashboard/research-assistant"
-            element={<ResearchAssistant />}
-          />
+          
           <Route path="/dashboard/interview" element={<Interview />} />
-          <Route path="/dashboard/resume-builder" element={<ResumeBuilder />} />
-          <Route path="/dashboard/summarizer" element={<Summarizer />} />
-          <Route
-            path="/dashboard/recommendations"
-            element={<Recommendations />}
-          />
+          <Route path="/dashboard/resume-analyzer" element={<ResumeAnalyzer />} />
+          <Route path="/dashboard/consultant" element={<Consultant />} />
+          
           <Route path="/dashboard/career-pathway" element={<CareerPathway />} />
           <Route path="/dashboard/community-page" element={<CommunityPage />} />
           <Route path="/dashboard/settings" element={<Settings />} />
