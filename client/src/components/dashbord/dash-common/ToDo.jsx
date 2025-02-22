@@ -3,8 +3,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 
 export default function ToDo() {
   const [tasks, setTasks] = useState([
-    { text: "Read a book", completed: false },
-    { text: "Wireframing new product", completed: false },
+    
     { text: "Moodboard Landing Page", completed: false },
     { text: "Weekly meeting", completed: false },
     { text: "Practice a 5-minute elevator pitch", completed: false },

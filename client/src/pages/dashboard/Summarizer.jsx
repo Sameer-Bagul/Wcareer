@@ -22,7 +22,7 @@ export default function Summarizer() {
         }}
       >
       
-      <div className="absolute inset-0 backdrop-blur-[2px] bg-white/10 rounded-lg" />
+      <div className="absolute inset-0 backdrop-blur-sm bg-white/5 rounded-lg" />
 
 
         {/* Content Above Glass Effect */}
