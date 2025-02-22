@@ -4,9 +4,9 @@ import Home from "../../images/Home/Home.png";
 const Hero = () => {
   const HeroData = {
     subhead: "Introducing WCareers",
-    head: "Your Gateway to Career Success!",
+    head: "WCareers - The Way Winners Work",
     description:
-      "Unlock new opportunities with AI-driven career guidance, skill-building, and job matching. Whether you're a student, job seeker, or working professional, WCareers helps you grow and succeed in your career journey.",
+      "Unlock new opportunities with AI-driven career guidance and skill-building. Whether you're a student, job seeker, or working professional, WCareers helps you grow and succeed in your career journey.",
     images: [Home], 
   };
 
