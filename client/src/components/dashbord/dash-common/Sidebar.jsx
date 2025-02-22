@@ -68,7 +68,7 @@ const SIDEBAR_ITEMS = [
     name: "Interview",
     icon: Briefcase,
     color: "#F59E00",
-    href: "/dashboard/interview",
+    href: "http://localhost:3001/dashboard",
   },
   {
     name: "Resume Builder",
