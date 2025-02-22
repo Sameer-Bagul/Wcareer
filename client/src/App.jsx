@@ -23,7 +23,7 @@ import CommunityPage from "./pages/dashboard/CommunityPage";
 import Settings from "./pages/dashboard/settings";
 import TechnicalTestPage from "./pages/TechnicalTestPage";
 import TechnicalTestInterface from "./pages/TechnicalTestInterface";
-
+import TechnicalTestResultPage from "./pages/TechnicalTestResultPage";
 function App() {
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
@@ -58,6 +58,10 @@ function App() {
           <Route
             path="attempt-technical-test"
             element={<TechnicalTestInterface />}
+          />
+          <Route
+            path="technical-test-result"
+            element={<TechnicalTestResultPage />}
           />
         </Routes>
       </div>
