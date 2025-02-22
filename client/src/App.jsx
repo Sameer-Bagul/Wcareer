@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
 
 import Sidebar from "./components/dashbord/dash-common/Sidebar";
 
@@ -23,7 +24,7 @@ import Settings from "./pages/dashboard/settings";
 import MarketInsights from "./pages/dashboard/MarketInsights";
 import PersonalizedRoadmap from "./pages/PersonalizedRoadmap";
 import TechnicalTestPage from "./pages/TechnicalTestPage";
-import TechnicalTestInterface from "./pages/TechnicalTestInterface";
+import TechnicalTestInterface from "./pages/AdaptiveTechnicalTest";
 import TechnicalTestResultPage from "./pages/TechnicalTestResultPage";
 import CognitiveTest from "./pages/CognitiveTest";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
@@ -34,6 +35,20 @@ import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import Leaderboard from "./pages/Leaderboard";
 
 function App() {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.weglot.com/weglot.min.js";
+    script.async = true;
+    script.onload = () => {
+      if (window.Weglot) {
+        window.Weglot.initialize({
+          api_key: "wg_adae7d07b5dd72b9121d9f4d8ac2b6db1",
+        });
+      }
+    };
+    document.body.appendChild(script);
+  }, []);
+
   const location = useLocation();
   const isDashboard = location.pathname.startsWith("/dashboard");
 
@@ -51,22 +66,47 @@ function App() {
 
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
-                              
-          <Route path="/dashboard/my-roadmap" element={<PersonalizedRoadmap />} />
+
+          <Route
+            path="/dashboard/my-roadmap"
+            element={<PersonalizedRoadmap />}
+          />
           <Route path="/dashboard/Leaderboard" element={<Leaderboard />} />
-          <Route path="/dashboard/market-insights" element={<MarketInsights />} />
-          <Route path="/dashboard/research-assistant" element={<ResearchAssistant />} />
+          <Route
+            path="/dashboard/market-insights"
+            element={<MarketInsights />}
+          />
+          <Route
+            path="/dashboard/research-assistant"
+            element={<ResearchAssistant />}
+          />
           <Route path="/dashboard/interview" element={<Interview />} />
           <Route path="/dashboard/resume-builder" element={<ResumeBuilder />} />
           <Route path="/dashboard/summarizer" element={<Summarizer />} />
-          <Route path="/dashboard/recommendations" element={<Recommendations />} />
+          <Route
+            path="/dashboard/recommendations"
+            element={<Recommendations />}
+          />
           <Route path="/dashboard/career-pathway" element={<CareerPathway />} />
           <Route path="/dashboard/community-page" element={<CommunityPage />} />
           <Route path="/dashboard/settings" element={<Settings />} />
-          <Route path="/dashboard/technical-test" element={<TechnicalTestPage />} />
-          <Route path="/dashboard/technical-test-result" element={<TechnicalTestResultPage />} />
+          <Route
+            path="/dashboard/technical-test"
+            element={<TechnicalTestPage />}
+          />
+          <Route
+            path="/technical-test-attempt"
+            element={<TechnicalTestInterface />}
+          />
+          <Route
+            path="dashboard/technical-test-result"
+            element={<TechnicalTestResultPage />}
+          />
           <Route path="/dashboard/cognitive-test" element={<CognitiveTest />} />
-          <Route path="/dashboard/PersonalityAssessment" element={<PersonalityAssessment />} />
+          <Route
+            path="/dashboard/PersonalityAssessment"
+            element={<PersonalityAssessment />}
+          />
 
           {/* Cognitive Games */}
           <Route path="/spotOn" element={<SpotOn />} />

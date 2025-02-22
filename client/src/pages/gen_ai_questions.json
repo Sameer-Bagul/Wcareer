@@ -1,0 +1,738 @@
+[
+    {
+        "model": "technical_test.question",
+        "pk": 1,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "What is the main purpose of fine-tuning a pre-trained Generative AI model?",
+            "option_a": "To reduce the model's size",
+            "option_b": "To adapt the model to a specific task or dataset",
+            "option_c": "To increase inference speed",
+            "option_d": "To change the model's architecture",
+            "correct_option": "B",
+            "concept_tag": "Model Optimization",
+            "difficulty_level": 0
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 2,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "Which loss function is commonly used in training GANs?",
+            "option_a": "Mean Squared Error (MSE)",
+            "option_b": "Binary Cross-Entropy",
+            "option_c": "Categorical Cross-Entropy",
+            "option_d": "Huber Loss",
+            "correct_option": "B",
+            "concept_tag": "GAN Training",
+            "difficulty_level": 1
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 3,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "What is the primary function of the transformer architecture in Gen AI?",
+            "option_a": "To replace convolutional layers",
+            "option_b": "To enable parallel processing and capture long-range dependencies",
+            "option_c": "To reduce model size",
+            "option_d": "To increase computation speed",
+            "correct_option": "B",
+            "concept_tag": "Transformer Models",
+            "difficulty_level": 2
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 4,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which of the following is a key advantage of using self-attention in transformers?",
+            "option_a": "Better handling of sequential data",
+            "option_b": "Faster training on small datasets",
+            "option_c": "Increased reliance on labeled data",
+            "option_d": "More efficient use of convolutional layers",
+            "correct_option": "A",
+            "concept_tag": "Self-Attention",
+            "difficulty_level": 3
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 5,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "What is a major challenge when training large language models?",
+            "option_a": "Low computational requirements",
+            "option_b": "Lack of available open-source datasets",
+            "option_c": "High energy consumption and hardware costs",
+            "option_d": "Inability to handle text data",
+            "correct_option": "C",
+            "concept_tag": "Scalability",
+            "difficulty_level": 4
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 6,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "Which technique helps reduce hallucinations in Gen AI models?",
+            "option_a": "Increasing model size",
+            "option_b": "Using retrieval-augmented generation (RAG)",
+            "option_c": "Reducing dataset size",
+            "option_d": "Removing all attention layers",
+            "correct_option": "B",
+            "concept_tag": "Hallucination Prevention",
+            "difficulty_level": 5
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 7,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "What is 'temperature' in text generation?",
+            "option_a": "A measure of model accuracy",
+            "option_b": "A parameter controlling randomness in output",
+            "option_c": "A technique for reducing training time",
+            "option_d": "A feature for improving text tokenization",
+            "correct_option": "B",
+            "concept_tag": "Text Generation",
+            "difficulty_level": 6
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 8,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "Which of the following architectures is commonly used for text-to-image generation?",
+            "option_a": "BERT",
+            "option_b": "CNN",
+            "option_c": "Stable Diffusion",
+            "option_d": "LSTM",
+            "correct_option": "C",
+            "concept_tag": "Text-to-Image Models",
+            "difficulty_level": 7
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 9,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which method can improve Gen AI model interpretability?",
+            "option_a": "Gradient-based explanations",
+            "option_b": "Adding more training data",
+            "option_c": "Reducing model size",
+            "option_d": "Removing attention layers",
+            "correct_option": "A",
+            "concept_tag": "Model Interpretability",
+            "difficulty_level": 8
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 10,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "Why is RLHF (Reinforcement Learning with Human Feedback) used in training Gen AI models?",
+            "option_a": "To increase model parameters",
+            "option_b": "To align the model output with human preferences",
+            "option_c": "To speed up training",
+            "option_d": "To replace supervised learning",
+            "correct_option": "B",
+            "concept_tag": "Model Alignment",
+            "difficulty_level": 9
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 11,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "Which activation function is commonly used in transformers?",
+            "option_a": "ReLU",
+            "option_b": "Sigmoid",
+            "option_c": "GeLU",
+            "option_d": "Tanh",
+            "correct_option": "C",
+            "concept_tag": "Transformer Models",
+            "difficulty_level": 0
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 12,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "What is a major advantage of Diffusion Models over GANs?",
+            "option_a": "They are faster to train",
+            "option_b": "They avoid mode collapse",
+            "option_c": "They require less training data",
+            "option_d": "They do not need any regularization",
+            "correct_option": "B",
+            "concept_tag": "Diffusion Models",
+            "difficulty_level": 1
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 13,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "Which component of a transformer is responsible for attending to different parts of the input?",
+            "option_a": "Feed-forward layer",
+            "option_b": "Self-attention mechanism",
+            "option_c": "Dropout layer",
+            "option_d": "Embedding layer",
+            "correct_option": "B",
+            "concept_tag": "Transformer Architecture",
+            "difficulty_level": 2
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 14,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "What is 'prompt engineering' in Gen AI?",
+            "option_a": "The process of fine-tuning model weights",
+            "option_b": "Optimizing input prompts to improve model outputs",
+            "option_c": "Creating new model architectures",
+            "option_d": "Generating training datasets",
+            "correct_option": "B",
+            "concept_tag": "Prompt Engineering",
+            "difficulty_level": 3
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 15,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "Which of these is a common problem in generative AI models?",
+            "option_a": "Underfitting",
+            "option_b": "Over-reliance on labels",
+            "option_c": "Hallucinations",
+            "option_d": "Inability to generate novel text",
+            "correct_option": "C",
+            "concept_tag": "Model Limitations",
+            "difficulty_level": 4
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 16,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "What does 'LoRA' (Low-Rank Adaptation) help achieve in fine-tuning?",
+            "option_a": "Reduce memory usage and speed up training",
+            "option_b": "Improve accuracy without additional training",
+            "option_c": "Completely replace full model fine-tuning",
+            "option_d": "Remove the need for labeled data",
+            "correct_option": "A",
+            "concept_tag": "Fine-Tuning Efficiency",
+            "difficulty_level": 5
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 17,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "Which optimization technique helps prevent mode collapse in GANs?",
+            "option_a": "Using a deeper generator network",
+            "option_b": "Applying spectral normalization",
+            "option_c": "Removing the discriminator",
+            "option_d": "Training with less data",
+            "correct_option": "B",
+            "concept_tag": "GAN Stability",
+            "difficulty_level": 6
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 18,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "What is 'latent space' in generative models?",
+            "option_a": "A hidden representation of learned features",
+            "option_b": "A separate storage for training data",
+            "option_c": "A method to visualize activations",
+            "option_d": "A memory optimization technique",
+            "correct_option": "A",
+            "concept_tag": "Latent Representation",
+            "difficulty_level": 7
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 19,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which approach improves Gen AI safety?",
+            "option_a": "Training on larger datasets",
+            "option_b": "Using adversarial training and human feedback",
+            "option_c": "Reducing model parameters",
+            "option_d": "Increasing output randomness",
+            "correct_option": "B",
+            "concept_tag": "AI Safety",
+            "difficulty_level": 8
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 20,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "What is the key challenge in multimodal AI?",
+            "option_a": "Combining different data types meaningfully",
+            "option_b": "Training efficiency",
+            "option_c": "Lack of labeled data",
+            "option_d": "Overfitting",
+            "correct_option": "A",
+            "concept_tag": "Multimodal AI",
+            "difficulty_level": 9
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 21,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "Which model is commonly used for code generation?",
+            "option_a": "BERT",
+            "option_b": "GPT",
+            "option_c": "ResNet",
+            "option_d": "Autoencoder",
+            "correct_option": "B",
+            "concept_tag": "Code Generation",
+            "difficulty_level": 0
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 22,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "What is 'tokenization' in NLP?",
+            "option_a": "Breaking text into smaller units",
+            "option_b": "Reducing the number of parameters",
+            "option_c": "Compressing training data",
+            "option_d": "Optimizing model architecture",
+            "correct_option": "A",
+            "concept_tag": "NLP Preprocessing",
+            "difficulty_level": 1
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 23,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "How does retrieval-augmented generation (RAG) improve AI responses?",
+            "option_a": "By generating random outputs",
+            "option_b": "By retrieving relevant external data during generation",
+            "option_c": "By reducing model size",
+            "option_d": "By increasing inference latency",
+            "correct_option": "B",
+            "concept_tag": "RAG Method",
+            "difficulty_level": 2
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 24,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "What is the main purpose of fine-tuning a pre-trained Generative AI model?",
+            "option_a": "To reduce the model's size",
+            "option_b": "To adapt the model to a specific task or dataset",
+            "option_c": "To increase inference speed",
+            "option_d": "To change the model's architecture",
+            "correct_option": "B",
+            "concept_tag": "Model Optimization",
+            "difficulty_level": 3
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 25,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "Which loss function is commonly used in training GANs?",
+            "option_a": "Mean Squared Error (MSE)",
+            "option_b": "Binary Cross-Entropy",
+            "option_c": "Categorical Cross-Entropy",
+            "option_d": "Huber Loss",
+            "correct_option": "B",
+            "concept_tag": "GAN Training",
+            "difficulty_level": 4
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 26,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "What is the primary function of the transformer architecture in Gen AI?",
+            "option_a": "To replace convolutional layers",
+            "option_b": "To enable parallel processing and capture long-range dependencies",
+            "option_c": "To reduce model size",
+            "option_d": "To increase computation speed",
+            "correct_option": "B",
+            "concept_tag": "Transformer Models",
+            "difficulty_level": 5
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 27,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "Which of the following is a key advantage of using self-attention in transformers?",
+            "option_a": "Better handling of sequential data",
+            "option_b": "Faster training on small datasets",
+            "option_c": "Increased reliance on labeled data",
+            "option_d": "More efficient use of convolutional layers",
+            "correct_option": "A",
+            "concept_tag": "Self-Attention",
+            "difficulty_level": 6
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 28,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "What is a major challenge when training large language models?",
+            "option_a": "Low computational requirements",
+            "option_b": "Lack of available open-source datasets",
+            "option_c": "High energy consumption and hardware costs",
+            "option_d": "Inability to handle text data",
+            "correct_option": "C",
+            "concept_tag": "Scalability",
+            "difficulty_level": 7
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 29,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which technique helps reduce hallucinations in Gen AI models?",
+            "option_a": "Increasing model size",
+            "option_b": "Using retrieval-augmented generation (RAG)",
+            "option_c": "Reducing dataset size",
+            "option_d": "Removing all attention layers",
+            "correct_option": "B",
+            "concept_tag": "Hallucination Prevention",
+            "difficulty_level": 8
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 30,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "What is 'temperature' in text generation?",
+            "option_a": "A measure of model accuracy",
+            "option_b": "A parameter controlling randomness in output",
+            "option_c": "A technique for reducing training time",
+            "option_d": "A feature for improving text tokenization",
+            "correct_option": "B",
+            "concept_tag": "Text Generation",
+            "difficulty_level": 9
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 31,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "Which of the following architectures is commonly used for text-to-image generation?",
+            "option_a": "BERT",
+            "option_b": "CNN",
+            "option_c": "Stable Diffusion",
+            "option_d": "LSTM",
+            "correct_option": "C",
+            "concept_tag": "Text-to-Image Models",
+            "difficulty_level": 0
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 32,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "Which method can improve Gen AI model interpretability?",
+            "option_a": "Gradient-based explanations",
+            "option_b": "Adding more training data",
+            "option_c": "Reducing model size",
+            "option_d": "Removing attention layers",
+            "correct_option": "A",
+            "concept_tag": "Model Interpretability",
+            "difficulty_level": 1
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 33,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "Why is RLHF (Reinforcement Learning with Human Feedback) used in training Gen AI models?",
+            "option_a": "To increase model parameters",
+            "option_b": "To align the model output with human preferences",
+            "option_c": "To speed up training",
+            "option_d": "To replace supervised learning",
+            "correct_option": "B",
+            "concept_tag": "Model Alignment",
+            "difficulty_level": 2
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 34,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which activation function is commonly used in transformers?",
+            "option_a": "ReLU",
+            "option_b": "Sigmoid",
+            "option_c": "GeLU",
+            "option_d": "Tanh",
+            "correct_option": "C",
+            "concept_tag": "Transformer Models",
+            "difficulty_level": 3
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 35,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "What is a major advantage of Diffusion Models over GANs?",
+            "option_a": "They are faster to train",
+            "option_b": "They avoid mode collapse",
+            "option_c": "They require less training data",
+            "option_d": "They do not need any regularization",
+            "correct_option": "B",
+            "concept_tag": "Diffusion Models",
+            "difficulty_level": 4
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 36,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "Which component of a transformer is responsible for attending to different parts of the input?",
+            "option_a": "Feed-forward layer",
+            "option_b": "Self-attention mechanism",
+            "option_c": "Dropout layer",
+            "option_d": "Embedding layer",
+            "correct_option": "B",
+            "concept_tag": "Transformer Architecture",
+            "difficulty_level": 5
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 37,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "What is 'prompt engineering' in Gen AI?",
+            "option_a": "The process of fine-tuning model weights",
+            "option_b": "Optimizing input prompts to improve model outputs",
+            "option_c": "Creating new model architectures",
+            "option_d": "Generating training datasets",
+            "correct_option": "B",
+            "concept_tag": "Prompt Engineering",
+            "difficulty_level": 6
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 38,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "Which of these is a common problem in generative AI models?",
+            "option_a": "Underfitting",
+            "option_b": "Over-reliance on labels",
+            "option_c": "Hallucinations",
+            "option_d": "Inability to generate novel text",
+            "correct_option": "C",
+            "concept_tag": "Model Limitations",
+            "difficulty_level": 7
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 39,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "What does 'LoRA' (Low-Rank Adaptation) help achieve in fine-tuning?",
+            "option_a": "Reduce memory usage and speed up training",
+            "option_b": "Improve accuracy without additional training",
+            "option_c": "Completely replace full model fine-tuning",
+            "option_d": "Remove the need for labeled data",
+            "correct_option": "A",
+            "concept_tag": "Fine-Tuning Efficiency",
+            "difficulty_level": 8
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 40,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "Which optimization technique helps prevent mode collapse in GANs?",
+            "option_a": "Using a deeper generator network",
+            "option_b": "Applying spectral normalization",
+            "option_c": "Removing the discriminator",
+            "option_d": "Training with less data",
+            "correct_option": "B",
+            "concept_tag": "GAN Stability",
+            "difficulty_level": 9
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 41,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "What is 'latent space' in generative models?",
+            "option_a": "A hidden representation of learned features",
+            "option_b": "A separate storage for training data",
+            "option_c": "A method to visualize activations",
+            "option_d": "A memory optimization technique",
+            "correct_option": "A",
+            "concept_tag": "Latent Representation",
+            "difficulty_level": 0
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 42,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 2,
+            "question_text": "Which approach improves Gen AI safety?",
+            "option_a": "Training on larger datasets",
+            "option_b": "Using adversarial training and human feedback",
+            "option_c": "Reducing model parameters",
+            "option_d": "Increasing output randomness",
+            "correct_option": "B",
+            "concept_tag": "AI Safety",
+            "difficulty_level": 1
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 43,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 3,
+            "question_text": "What is the key challenge in multimodal AI?",
+            "option_a": "Combining different data types meaningfully",
+            "option_b": "Training efficiency",
+            "option_c": "Lack of labeled data",
+            "option_d": "Overfitting",
+            "correct_option": "A",
+            "concept_tag": "Multimodal AI",
+            "difficulty_level": 2
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 44,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 4,
+            "question_text": "Which model is commonly used for code generation?",
+            "option_a": "BERT",
+            "option_b": "GPT",
+            "option_c": "ResNet",
+            "option_d": "Autoencoder",
+            "correct_option": "B",
+            "concept_tag": "Code Generation",
+            "difficulty_level": 3
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 45,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 5,
+            "question_text": "What is 'tokenization' in NLP?",
+            "option_a": "Breaking text into smaller units",
+            "option_b": "Reducing the number of parameters",
+            "option_c": "Compressing training data",
+            "option_d": "Optimizing model architecture",
+            "correct_option": "A",
+            "concept_tag": "NLP Preprocessing",
+            "difficulty_level": 4
+        }
+    },
+    {
+        "model": "technical_test.question",
+        "pk": 46,
+        "fields": {
+            "skill": "Gen AI Programmer",
+            "yoe": 1,
+            "question_text": "How does retrieval-augmented generation (RAG) improve AI responses?",
+            "option_a": "By generating random outputs",
+            "option_b": "By retrieving relevant external data during generation",
+            "option_c": "By reducing model size",
+            "option_d": "By increasing inference latency",
+            "correct_option": "B",
+            "concept_tag": "RAG Method",
+            "difficulty_level": 5
+        }
+    }
+]

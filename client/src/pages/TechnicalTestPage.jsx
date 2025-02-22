@@ -23,12 +23,10 @@ function TechnicalTestPage() {
 
   return (
     <div className="w-full min-h-screen bg-[#F8F7F3]">
-      
       <div className="w-full">
         <Header title="Technical Test" />
       </div>
 
-      
       <div className="max-w-sm mx-auto mt-10">
         {!isVerified ? (
           <motion.div
@@ -100,7 +98,7 @@ function TechnicalTestPage() {
               This is a sample test for the CNC Programmer skill. This is MCQ
               based.
             </p>
-            <Link to="/attempt-technical-test">
+            <Link to="/technical-test-attempt">
               <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                 Start Test
               </button>
