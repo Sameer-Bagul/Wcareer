@@ -32,7 +32,7 @@ const SIDEBAR_ITEMS = [
     name: "My Roadmap",
     icon: GanttChart,
     color: "#FF8643",
-    href: "/dashboard/my-roadmap",
+    href: "/dashboard/roadmap",
   },
   {
     name: "Technical Test",

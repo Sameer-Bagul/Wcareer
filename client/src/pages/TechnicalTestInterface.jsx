@@ -163,7 +163,7 @@ const TechnicalTestInterface = () => {
     localStorage.removeItem("examProgress");
 
     // Navigate to results page
-    navigate("/technical-test-result");
+    navigate("dashboard/technical-test-result");
   };
 
   // Loading state
