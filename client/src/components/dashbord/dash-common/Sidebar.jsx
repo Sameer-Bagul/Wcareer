@@ -29,6 +29,12 @@ const SIDEBAR_ITEMS = [
     href: "/dashboard",
   },
   {
+    name: "Leaderboard",
+    icon: Lightbulb,
+    color: "#FF8643",
+    href: "/dashboard/Leaderboard",
+  },
+  {
     name: "My Roadmap",
     icon: GanttChart,
     color: "#FF8643",
