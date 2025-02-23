@@ -1,13 +1,26 @@
-import Header from "../components/home-common/Header"
-import Navabr from "../components/home-common/Navabr"
+import Hero from '@/components/home-common/Hero';
+import Navbar from '@/components/home-common/Navbar';
+import Services from '@/components/home-common/Services';
+import Features from '@/components/home-common/Features';
+import Tools from '@/components/home-common/Tools';
+import Community from '../components/home-common/Community';
+import Footer from '@/components/home-common/Footer';
 
-const Home = () => {
+
+function Home2() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-[url('/bg_img.png')] bg-cover bg-center">
-      <Navabr />
-      <Header />
+    <div>
+
+    <Navbar />
+    <Hero />
+    <Services />
+    <Features />
+    <Tools />
+    <Community />
+
+    <Footer />
     </div>
   )
 }
 
-export default Home
+export default Home2
