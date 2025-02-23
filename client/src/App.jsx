@@ -32,7 +32,7 @@ import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import Leaderboard from "./pages/Leaderboard";
 
-import Home2 from "./pages/Home2";
+// import Home2 from "./pages/Home2";
 
 function App() {
   useEffect(() => {
@@ -64,7 +64,7 @@ function App() {
           <Route path="/email-verify" element={<EmailVerify />} />
           <Route path="/reset-password" element={<ResetPassword />} />
 
-          <Route path="/home" element={<Home2 />} />
+          {/* <Route path="/" element={<Home2 />} /> */}
 
           {/* Dashboard Pages (With Sidebar) */}
           <Route path="/dashboard" element={<Dashboard />} />
