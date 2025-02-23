@@ -5,7 +5,7 @@ export default function ToDo() {
   const [tasks, setTasks] = useState([
     
     { text: "Moodboard Landing Page", completed: false },
-    { text: "Weekly meeting", completed: false },
+    
     { text: "Practice a 5-minute elevator pitch", completed: false },
     { text: "Connect with 5 professionals on LinkedIn", completed: false },
     { text: "Research potential companies for job applications", completed: false }

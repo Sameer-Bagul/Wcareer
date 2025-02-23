@@ -6,7 +6,6 @@ import SkillProgressChart from "../../components/dashbord/dash-common/SkillProgr
 import ToDo from "../../components/dashbord/dash-common/ToDo";
 import Calendar from "../../components/dashbord/dash-common/Calendar"; 
 import Psychometric from "../../components/dashbord/dash-common/PsycometricTest";
-import Notice from "../../components/dashbord/dash-common/Notice"; 
 import { AppContext } from "@/context/AppContext";
 
 const AssessmentCards = [
@@ -18,14 +17,14 @@ const AssessmentCards = [
     description: "Test your technical prowess across multiple domains. Get detailed insights into your strengths and areas for improvement."
   },
   {
-    title: "Cognitive Analysis",
+    title: "Cognitive Assessment",
     icon: Brain,
     color: "#532D69",
     href: "/dashboard/cognitive-test",
     description: "Challenge your problem-solving abilities, logical reasoning, and critical thinking skills through interactive scenarios."
   },
   {
-    title: "Career DNA Test",
+    title: "Personality Assessment",
     icon: FileText,
     color: "#F59E00",
     href: "/dashboard/PersonalityAssessment",
@@ -51,7 +50,7 @@ const Dashboard = () => {
       
       <div className="max-w-7xl mx-auto py-4 md:py-6 px-2 md:px-6 lg:px-8">
         {/* Assessment Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {AssessmentCards.map((card) => (
             <Link 
               key={card.title} 
@@ -115,20 +114,20 @@ const Dashboard = () => {
         </div>
 
         {/* Dashboard Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
-          <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="h-full">
             <SkillProgressChart />
           </div>
 
-          <div>
+          <div className="h-full">
             <ToDo />
           </div>
 
-          <div>
+          <div className="h-full">
             <Calendar />
           </div>
 
-          <div>
+          <div className="h-full">
             <Psychometric />
           </div>
         </div>

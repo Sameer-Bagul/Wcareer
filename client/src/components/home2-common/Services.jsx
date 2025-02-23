@@ -7,7 +7,7 @@ const Service = () => {
   const ServiceData = {
     head: "Our Program",
     description:
-      "We offer a variety of courses over various creative topics.",
+      "We offer a comprehensive range of courses and resources to help you excel in your career journey, combining practical skills with industry insights.",
   };
 
   const services = [
@@ -15,26 +15,26 @@ const Service = () => {
       image: LightBulb,
       alt: "Light Bulb",
       title: "Career Mentorship",
-      description: "Get guidance from industry professionals.",
+      description: "Get personalized guidance from industry professionals who've walked the path. Our mentors provide actionable feedback to accelerate your growth.",
     },
     {
       image: Trophy,
       alt: "Trophy",
       title: "Skill Development",
-      description: "Learn in-demand skills.",
+      description: "Master in-demand skills through hands-on projects and interactive learning. Our curriculum stays updated with the latest industry requirements.",
     },
     {
       image: Messages,
       alt: "Messages",
       title: "Resources & Reccomendations",
-      description: "Personalized insights, skill validation, and curated learning paths to help you grow.",
+      description: "Access curated learning materials and follow personalized learning paths designed to match your career goals. Get validated for your progress.",
     },
   ];
 
   return (
     <section className="max-w-[1440px] mx-auto mt-[50px] px-5 lg:px-[100px] py-16">
-      <div className="flex flex-wrap lg:flex-nowrap items-start gap-20">
-        <div className="min-w-[250px]">
+      <div className="flex flex-wrap lg:flex-nowrap items-center gap-20">
+        <div className="min-w-[250px] lg:pt-[5px]">
           <h4 className="text-5xl font-semibold leading-tight">{ServiceData.head}</h4>
           <p className="text-gray-600 mt-4 max-w-[300px]">{ServiceData.description}</p>
         </div>
