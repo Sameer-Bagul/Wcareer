@@ -74,3 +74,132 @@
       @apply bg-background text-foreground;
     }
   }
+
+@layer utilities {
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-3000 {
+    animation-delay: 3s;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) rotate(10deg) scale(1.1);
+  }
+  66% {
+    transform: translate(-50px, 30px) rotate(-10deg) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  50% {
+    transform: translate(40px, -40px) rotate(20deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+}
+
+@keyframes move-x {
+  0% {
+    transform: translateX(-100%) scaleY(1.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) scaleY(1);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes move-y {
+  0% {
+    transform: translateY(-100%) scaleX(1.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%) scaleX(1);
+  }
+  100% {
+    transform: translateY(100%) scaleX(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes float-dots {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+  33% {
+    transform: translate(20px, -20px) scale(1.2);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-10px, 10px) scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes float-check {
+  0% {
+    transform: translate(0px, 0px) rotate(45deg) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(15px, -15px) rotate(45deg) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(45deg) scale(1);
+    opacity: 0.5;
+  }
+}
+
+@layer components {
+  .animate-float {
+    animation: float 30s ease infinite;
+  }
+  
+  .animate-float-slow {
+    animation: float-slow 25s ease-in-out infinite;
+  }
+  
+  .animate-move-x {
+    animation: move-x 20s linear infinite;
+  }
+  
+  .animate-move-y {
+    animation: move-y 25s linear infinite;
+  }
+  
+  .animate-float-dots {
+    animation: float-dots 10s ease-in-out infinite;
+  }
+  
+  .animate-float-check {
+    animation: float-check 15s ease-in-out infinite;
+  }
+}

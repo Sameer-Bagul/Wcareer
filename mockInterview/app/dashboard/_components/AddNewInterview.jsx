@@ -23,139 +23,185 @@ const AddNewInterview = () => {
     const router = useRouter();
     const { user } = useUser();
     const [openDialog, setOpenDialog] = useState(false);
-    const [jobPosition, setJobPosition] = useState("");
-    const [jobDesc, setJobDesc] = useState("");
-    const [jobExperience, setJobExperience] = useState(0);
+    const [formData, setFormData] = useState({
+        jobPosition: "",
+        jobDesc: "",
+        jobExperience: "",
+    });
     const [isLoading, setIsLoading] = useState(false);
-    const [jsonResponse, setJsonResponse] = useState([]);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
     const onSubmit = async (e) => {
-        setIsLoading(true);
         e.preventDefault();
-        console.log(jobDesc, jobPosition, jobExperience);
+        setIsLoading(true);
 
-        const inputPrompt = `Job Position:${jobPosition}, Job Description: ${jobDesc}, Years of Experience: ${jobExperience}.
-        
-        By analyzing the above information, give me ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions with answers in json format, give questions and answers as field in json. just return the array`;
+        try {
+            const inputPrompt = `Job Position:${formData.jobPosition}, Job Description: ${formData.jobDesc}, Years of Experience: ${formData.jobExperience}.
+            By analyzing the above information, give me ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions with answers in json format, give questions and answers as field in json. just return the array`;
 
-        const result = await chatSession.sendMessage(inputPrompt);
-        const mockJSONResponse = result.response
-            .text()
-            .replace("```json", "")
-            .replace("```", "");
-        // console.log(JSON.parse(mockJSONResponse));
-        // const resultData = JSON.parse(mockJSONResponse);
-        // setJsonResponse(resultData);
-        // setOpenDialog(false);
-        setJsonResponse(mockJSONResponse);
-        if (mockJSONResponse) {
+            const result = await chatSession.sendMessage(inputPrompt);
+            const mockJSONResponse = result.response.text()
+                .replace("```json", "")
+                .replace("```", "");
+
             const resp = await db
                 .insert(MockInterview)
                 .values({
                     mockId: uuidv4(),
                     jsonMockResp: mockJSONResponse,
-                    jobPosition: jobPosition,
-                    jobDesc: jobDesc,
-                    jobExperience: jobExperience,
+                    jobPosition: formData.jobPosition,
+                    jobDesc: formData.jobDesc,
+                    jobExperience: Number(formData.jobExperience),
                     createdBy: user?.primaryEmailAddress?.emailAddress,
                     createdAt: moment().format("DD-MM-yyyy"),
                 })
                 .returning({ mockId: MockInterview.mockId });
-            console.log("Inserted Id", resp);
-            if (resp) {
+
+            if (resp?.[0]?.mockId) {
                 setOpenDialog(false);
-                router.push(`/dashboard/interview/${resp[0]?.mockId}`);
+                router.push(`/dashboard/interview/${resp[0].mockId}`);
             }
-        } else {
-            console.log("Error generating");
+        } catch (error) {
+            console.error("Error:", error);
+        } finally {
+            setIsLoading(false);
         }
-        setIsLoading(false);
     };
 
     return (
         <div>
-            <div
-                className="p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all"
+            {/* Add New Interview Card */}
+            <div 
                 onClick={() => setOpenDialog(true)}
+                className="group relative overflow-hidden rounded-lg bg-white p-6 
+                         shadow-[0_0_15px_rgba(234,179,8,0.2)] 
+                         hover:shadow-[0_0_30px_rgba(234,179,8,0.3)] 
+                         transition-all duration-300 cursor-pointer border border-gray-200"
             >
-                <h2 className=" text-lg shadcntext-center">+ Add New</h2>
+                <div className="flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="h-12 w-12 rounded-full bg-yellow-100 flex items-center justify-center mx-auto mb-4">
+                            <svg className="h-6 w-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </div>
+                        <h3 className="text-lg font-medium text-gray-900">Add New Interview</h3>
+                        <p className="mt-2 text-sm text-gray-500">Create a new mock interview session</p>
+                    </div>
+                </div>
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-yellow-400 rounded-lg transition-all duration-300"></div>
             </div>
+
+            {/* Interview Form Dialog */}
             <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-                <DialogContent className="max-w-2xl">
+                <DialogContent className="sm:max-w-[600px] shadow-[0_0_30px_rgba(234,179,8,0.2)]">
                     <DialogHeader>
-                        <DialogTitle className="text-2xl">
-                            Tell us more about your job interviewing
+                        <DialogTitle className="text-2xl font-bold text-gray-900">
+                            Create New Interview
                         </DialogTitle>
-                        <DialogDescription>
-                            <form onSubmit={onSubmit}>
-                                <div>
-                                    <h2>
-                                        Add details about your job
-                                        position/role, job description and years
-                                        of experience
-                                    </h2>
-                                    <div className="mt-7 my-2">
-                                        <label>Job Role/Job Position</label>
-                                        <Input
-                                            placeholder="Ex. Full Stack Developer"
-                                            required
-                                            onChange={(e) =>
-                                                setJobPosition(e.target.value)
-                                            }
-                                        />
-                                    </div>
-                                    <div className="mt-7 my-2">
-                                        <label>
-                                            Job Description/ Tech Stack in brief
-                                        </label>
-                                        <Textarea
-                                            placeholder="Ex. React, Angular, NodeJs, MySQL, etc..."
-                                            required
-                                            onChange={(e) =>
-                                                setJobDesc(e.target.value)
-                                            }
-                                        />
-                                    </div>
-                                    <div className="mt-7 my-2">
-                                        <label>
-                                            Years of experience required
-                                        </label>
-                                        <Input
-                                            placeholder="Ex. 5"
-                                            type="number"
-                                            min={0}
-                                            required
-                                            onChange={(e) =>
-                                                setJobExperience(
-                                                    Number(e.target.value)
-                                                )
-                                            }
-                                        />
-                                    </div>
-                                </div>
-                                <div className="flex gap-5 justify-end">
-                                    <Button
-                                        variant="ghost"
-                                        onClick={() => {
-                                            setOpenDialog(false);
-                                            setIsLoading(false);
-                                        }}
-                                        type="button"
-                                    >
-                                        Cancel
-                                    </Button>
-                                    <Button type="submit" disabled={isLoading}>
-                                        {isLoading ? (
-                                            <>
-                                                <LoaderCircle /> Generating...
-                                            </>
-                                        ) : (
-                                            "Start Interview"
-                                        )}
-                                    </Button>
-                                </div>
-                            </form>
+                        <DialogDescription className="text-gray-500 mt-2">
+                            Fill in the details below to generate your interview questions.
                         </DialogDescription>
                     </DialogHeader>
+
+                    <form onSubmit={onSubmit} className="mt-6 space-y-6">
+                        <div className="space-y-4">
+                            {/* Job Position Input */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">
+                                    Job Position
+                                </label>
+                                <Input
+                                    name="jobPosition"
+                                    placeholder="Ex: Senior Frontend Developer"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md 
+                                             focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400
+                                             shadow-sm hover:border-yellow-400"
+                                    value={formData.jobPosition}
+                                    onChange={handleInputChange}
+                                    disabled={isLoading}
+                                    required
+                                />
+                            </div>
+
+                            {/* Job Description Input */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">
+                                    Job Description
+                                </label>
+                                <Textarea
+                                    name="jobDesc"
+                                    placeholder="Ex: React, TypeScript, Node.js, etc."
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md 
+                                             focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400
+                                             shadow-sm hover:border-yellow-400"
+                                    value={formData.jobDesc}
+                                    onChange={handleInputChange}
+                                    disabled={isLoading}
+                                    required
+                                    rows={4}
+                                />
+                            </div>
+
+                            {/* Experience Input */}
+                            <div className="space-y-2">
+                                <label className="text-sm font-medium text-gray-700">
+                                    Years of Experience
+                                </label>
+                                <Input
+                                    name="jobExperience"
+                                    type="number"
+                                    min={0}
+                                    placeholder="Ex: 3"
+                                    className="w-full px-3 py-2 border border-gray-300 rounded-md 
+                                             focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400
+                                             shadow-sm hover:border-yellow-400"
+                                    value={formData.jobExperience}
+                                    onChange={handleInputChange}
+                                    disabled={isLoading}
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="flex justify-end space-x-4 pt-4">
+                            <Button
+                                type="button"
+                                variant="outline"
+                                onClick={() => setOpenDialog(false)}
+                                className="px-4 py-2 text-gray-700 bg-white border border-gray-300 
+                                         rounded-md hover:bg-yellow-50 hover:border-yellow-400"
+                                disabled={isLoading}
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                type="submit"
+                                className="px-4 py-2 text-white bg-yellow-400 rounded-md 
+                                         hover:bg-yellow-500 focus:outline-none focus:ring-2 
+                                         focus:ring-yellow-400 focus:ring-offset-2
+                                         shadow-sm hover:shadow-md transition-all duration-300"
+                                disabled={isLoading}
+                            >
+                                {isLoading ? (
+                                    <div className="flex items-center space-x-2">
+                                        <LoaderCircle className="animate-spin h-5 w-5" />
+                                        <span>Generating...</span>
+                                    </div>
+                                ) : (
+                                    "Start Interview"
+                                )}
+                            </Button>
+                        </div>
+                    </form>
                 </DialogContent>
             </Dialog>
         </div>
