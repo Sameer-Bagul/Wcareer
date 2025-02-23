@@ -9,25 +9,37 @@ import {
 	Legend,
 	Tooltip,
 } from "recharts";
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const psychometricData = [
-	{ subject: "Cognitive Abilities", Score: 120, Benchmark: 110, fullMark: 150 },
-	{ subject: "Personality Traits", Score: 98, Benchmark: 130, fullMark: 150 },
-	{ subject: "Emotional Intelligence", Score: 86, Benchmark: 125, fullMark: 150 },
-	{ subject: "Aptitude & Skills", Score: 99, Benchmark: 100, fullMark: 150 },
-	{ subject: "Work Style", Score: 85, Benchmark: 95, fullMark: 150 },
-	{ subject: "Career Fit", Score: 65, Benchmark: 85, fullMark: 150 },
+	{ subject: "Realistic", Score: 120, Benchmark: 110, fullMark: 150 },
+	{ subject: "Investigative", Score: 98, Benchmark: 130, fullMark: 150 },
+	{ subject: "Artistic", Score: 86, Benchmark: 125, fullMark: 150 },
+	{ subject: "Social", Score: 99, Benchmark: 100, fullMark: 150 },
+	{ subject: "Enterprising", Score: 85, Benchmark: 95, fullMark: 150 },
+	{ subject: "Conventional", Score: 65, Benchmark: 85, fullMark: 150 },
 ];
 
 const Psychometric = () => {
 	return (
 		<motion.div
-			className='bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md shadow-md shadow-[#bfbcb2] p-6 rounded-lg flex flex-col gap-6'
+			className='bg-[#F8F7F3] bg-opacity-50 backdrop-blur-md shadow-md shadow-[#bfbcb2] p-6 rounded-lg flex flex-col gap-6 relative'
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.6 }}
 		>
-			<h2 className='text-xl font-semibold text-black-100 mb-4'>Psychometric Evaluation</h2>
+			<div className="flex justify-between items-center mb-4">
+				<h2 className='text-xl font-semibold text-black-100'>Personality Metrics</h2>
+				<a 
+					href="https://www.16personalities.com/personality-types"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="text-gray-600 hover:text-gray-800 transition-colors"
+					title="Visit 16Personalities"
+				>
+					<FaExternalLinkAlt size={16} />
+				</a>
+			</div>
 			<div style={{ width: "100%", height: 300 }}>
 				<ResponsiveContainer>
 					<RadarChart cx='50%' cy='50%' outerRadius='80%' data={psychometricData}>

@@ -11,14 +11,14 @@ const Hero = () => {
   };
 
   return (
-    <section className="flex flex-col lg:flex-row max-w-[1440px] mx-auto gap-[40px] mt-[200px] px-5 lg:px-[100px]">
+    <section className="flex flex-col lg:flex-row max-w-[1440px] mx-auto gap-[40px] mt-[150px] px-5 lg:px-[100px]">
      
-      <div className="flex flex-col flex-1 max-w-[531px] space-y-4">
+      <div className="flex flex-col flex-1 max-w-[531px] space-y-4 justify-center">
         <h3 className="text-md lg:text-lg font-medium text-orange-400 leading-tight">
           {HeroData.subhead}
         </h3>
         <h1 className="text-4xl lg:text-6xl font-bold text-black leading-tight">
-          {HeroData.head}
+          <span className="text-[#FF8643]">W</span>Careers - The <span className="text-[#FF8643]">W</span>ay Winners <span className="text-[#FF8643]">W</span>ork
         </h1>
         <p className="text-md text-black leading-7">{HeroData.description}</p>
       </div>
