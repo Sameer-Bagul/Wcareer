@@ -35,6 +35,12 @@ const SIDEBAR_ITEMS = [
     href: "/dashboard/Leaderboard",
   },
   {
+    name: "Mentors",
+    icon: Brain,
+    color: "#FF8643",
+    href: "/dashboard/mentor-mania",
+  },
+  {
     name: "My Roadmap",
     icon: GanttChart,
     color: "#FF8643",

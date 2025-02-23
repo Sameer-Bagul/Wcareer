@@ -46,7 +46,7 @@ const Dashboard = () => {
 
   return (
     <div className="flex-1 overflow-auto relative z-10 p-4 md:p-6">
-      <Header title={ntitle} />
+      <Header title={ntitle} className=""/>
       
       <div className="max-w-7xl mx-auto py-4 md:py-6 px-2 md:px-6 lg:px-8">
         {/* Assessment Cards */}

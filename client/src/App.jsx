@@ -26,11 +26,12 @@ import TechnicalTestInterface from "./pages/AdaptiveTechnicalTest";
 import TechnicalTestResultPage from "./pages/TechnicalTestResultPage";
 import CognitiveTest from "./pages/CognitiveTest";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
-
+import MentorMania from "./pages/MentorMania";
 // Cognitive Games
 import SpotOn from "./Pages/CognitiveGames/SpotOn";
 import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
 import Leaderboard from "./pages/Leaderboard";
+import BecomeMentor from './pages/BecomeMentor';
 
 // import Home2 from "./pages/Home2";
 
@@ -80,6 +81,8 @@ function App() {
           />
           
           <Route path="/dashboard/interview" element={<Interview />} />
+        
+          <Route path="/dashboard/mentor-mania" element={<MentorMania />} />
           <Route path="/dashboard/resume-analyzer" element={<ResumeAnalyzer />} />
           <Route path="/dashboard/consultant" element={<Consultant />} />
           
@@ -107,6 +110,9 @@ function App() {
           {/* Cognitive Games */}
           <Route path="/spotOn" element={<SpotOn />} />
           <Route path="/brainSwitch" element={<BrainSwitch />} />
+
+          {/* Become Mentor Page*/}
+          <Route path="/become-mentor" element={<BecomeMentor />} />
         </Routes>
       </div>
       <ToastContainer />

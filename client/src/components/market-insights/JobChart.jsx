@@ -1,112 +1,182 @@
 import React, { useEffect, useState } from "react";
-import { Bar, Pie, Doughnut } from "react-chartjs-2";
-import "chart.js/auto"; // Required for Chart.js v3+
+import { Bar, Pie } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement
+} from 'chart.js';
 
-const JobChart = ({ jobs }) => {
-  const [chartData, setChartData] = useState(null);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip, 
+  Legend,
+  ArcElement
+);
+
+// Fallback chart data
+const FALLBACK_CHART_DATA = {
+  labels: ['No Data'],
+  datasets: [{
+    label: 'No Data Available',
+    data: [0],
+    backgroundColor: 'rgba(200, 200, 200, 0.5)',
+  }]
+};
+
+const JobChart = ({ jobs = [] }) => { // Provide default value for jobs
+  const [chartData, setChartData] = useState({
+    skillsChartData: FALLBACK_CHART_DATA,
+    locationChartData: FALLBACK_CHART_DATA,
+    options: {},
+    pieOptions: {}
+  });
 
   useEffect(() => {
-    const prepareChartData = () => {
-      const categoryCounts = jobs.reduce((acc, job) => {
-        acc[job.category] = (acc[job.category] || 0) + 1;
+    try {
+      if (!Array.isArray(jobs) || jobs.length === 0) {
+        throw new Error('Invalid or empty jobs data');
+      }
+
+      // Process data for charts
+      const skillsCount = jobs.reduce((acc, job) => {
+        (job.skills || []).forEach(skill => {
+          if (skill) {
+            acc[skill] = (acc[skill] || 0) + 1;
+          }
+        });
         return acc;
       }, {});
 
-      const locationCounts = jobs.reduce((acc, job) => {
-        acc[job.location] = (acc[job.location] || 0) + 1;
+      const locationCount = jobs.reduce((acc, job) => {
+        const location = job.location || 'Remote';
+        acc[location] = (acc[location] || 0) + 1;
         return acc;
       }, {});
 
-      const employmentCounts = jobs.reduce((acc, job) => {
-        acc[job.employment_type] = (acc[job.employment_type] || 0) + 1;
-        return acc;
-      }, {});
+      // Sort and get top skills
+      const topSkills = Object.entries(skillsCount)
+        .sort(([, a], [, b]) => b - a)
+        .slice(0, 8);
 
-      const backgroundColors = ["#FFA500", "#532D69", "#FF7A29"];
-      const borderColors = ["#FFA500", "#532D69", "#FF7A29"];
+      // Chart data
+      const skillsChartData = {
+        labels: topSkills.map(([skill]) => skill),
+        datasets: [
+          {
+            label: 'Number of Jobs',
+            data: topSkills.map(([, count]) => count),
+            backgroundColor: 'rgba(59, 130, 246, 0.8)',
+            borderColor: 'rgba(59, 130, 246, 1)',
+            borderWidth: 1,
+          },
+        ],
+      };
+
+      const locationChartData = {
+        labels: Object.keys(locationCount),
+        datasets: [
+          {
+            data: Object.values(locationCount),
+            backgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56',
+              '#4BC0C0',
+              '#9966FF',
+              '#FF9F40',
+            ],
+          },
+        ],
+      };
+
+      const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Job Distribution by Skills',
+          },
+        },
+      };
+
+      const pieOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'right',
+          },
+          title: {
+            display: true,
+            text: 'Jobs by Location',
+          },
+        },
+      };
 
       setChartData({
-        categoryData: {
-          labels: Object.keys(categoryCounts).slice(0, 10),
-          datasets: [
-            {
-              label: "Job Categories",
-              data: Object.values(categoryCounts).slice(0, 10),
-              backgroundColor: backgroundColors,
-              borderColor: borderColors,
-              borderWidth: 2,
-            },
-          ],
-        },
-        locationData: {
-          labels: Object.keys(locationCounts).slice(0, 10),
-          datasets: [
-            {
-              label: "Job Locations",
-              data: Object.values(locationCounts).slice(0, 10),
-              backgroundColor: backgroundColors,
-              borderColor: borderColors,
-              borderWidth: 2,
-            },
-          ],
-        },
-        employmentData: {
-          labels: Object.keys(employmentCounts).slice(0, 10),
-          datasets: [
-            {
-              label: "Employment Types",
-              data: Object.values(employmentCounts).slice(0, 10),
-              backgroundColor: backgroundColors,
-              borderColor: borderColors,
-              borderWidth: 2,
-            },
-          ],
-        },
+        skillsChartData,
+        locationChartData,
+        options,
+        pieOptions
       });
-    };
-
-    if (jobs.length > 0) {
-      prepareChartData();
+    } catch (error) {
+      console.error('Error processing chart data:', error);
+      setChartData({
+        skillsChartData: FALLBACK_CHART_DATA,
+        locationChartData: FALLBACK_CHART_DATA,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top' },
+            title: { 
+              display: true,
+              text: 'No Data Available'
+            },
+          },
+        },
+        pieOptions: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right' },
+            title: { 
+              display: true,
+              text: 'No Data Available'
+            },
+          },
+        }
+      });
     }
   }, [jobs]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6 bg-[#f4f4f4]">
-      {/* Job Categories Pie Chart */}
-      <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-[#FFA500] hover:shadow-xl transition-all duration-300">
-        <h3 className="text-xl font-semibold text-center mb-4 text-[#FFA500]">Job Categories</h3>
-        <div className="h-[300px] w-full overflow-auto">
-          {chartData && <Pie data={chartData.categoryData} options={{ maintainAspectRatio: false, responsive: true }} />}
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="h-[300px]"> {/* Fixed height container */}
+        <Bar 
+          data={chartData.skillsChartData} 
+          options={chartData.options}
+          fallbackContent={<div>Unable to load chart</div>}
+        />
       </div>
-
-      {/* Job Locations Doughnut Chart */}
-      <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-[#532D69] hover:shadow-xl transition-all duration-300">
-        <h3 className="text-xl font-semibold text-center mb-4 text-[#532D69]">Job Locations</h3>
-        <div className="h-[300px] w-full overflow-auto">
-          {chartData && <Doughnut data={chartData.locationData} options={{ maintainAspectRatio: false, responsive: true }} />}
-        </div>
-      </div>
-
-      {/* Employment Types Bar Chart */}
-      <div className="bg-white shadow-lg rounded-lg p-6 border-t-4 border-[#FF7A29] hover:shadow-xl transition-all duration-300">
-        <h3 className="text-xl font-semibold text-center mb-4 text-[#FF7A29]">Employment Types</h3>
-        <div className="h-[300px] w-full overflow-auto">
-          {chartData && (
-            <Bar
-              data={chartData.employmentData}
-              options={{
-                maintainAspectRatio: false,
-                responsive: true,
-                plugins: { legend: { display: false } },
-                scales: {
-                  x: { grid: { display: false } },
-                  y: { grid: { color: "rgba(0,0,0,0.1)" } },
-                },
-              }}
-            />
-          )}
-        </div>
+      <div className="h-[300px]"> {/* Fixed height container */}
+        <Pie 
+          data={chartData.locationChartData} 
+          options={chartData.pieOptions}
+          fallbackContent={<div>Unable to load chart</div>}
+        />
       </div>
     </div>
   );
