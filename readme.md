@@ -1,6 +1,6 @@
 # **(WCareers.ai)**
 
-**Skillify** is an AI-powered career guidance platform designed to help users with **job recommendations**, **skill development**, **interview preparation**, and **personalized career roadmaps**.
+**WCareers** is an AI-powered career guidance platform designed to help users with **job recommendations**, **skill development**, **interview preparation**, and **personalized career roadmaps**.
 
 ## **Features:**
 - **Resume Wizard**: AI-powered resume enhancements with smart suggestions.
