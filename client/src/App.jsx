@@ -28,8 +28,8 @@ import CognitiveTest from "./pages/CognitiveTest";
 import PersonalityAssessment from "./pages/PersonalityAssessmentPage";
 import MentorMania from "./pages/MentorMania";
 // Cognitive Games
-import SpotOn from "./Pages/CognitiveGames/SpotOn";
-import BrainSwitch from "./Pages/CognitiveGames/BrainSwitch";
+import SpotOn from "./pages/CognitiveGames/SpotOn";
+import BrainSwitch from "./pages/CognitiveGames/BrainSwitch";
 import Leaderboard from "./pages/Leaderboard";
 import BecomeMentor from './pages/BecomeMentor';
 

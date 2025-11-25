@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Webcam from "react-webcam";
 
 // Instruction images
-import instruction2 from "../../images/cognitive_games/BrainSwitch/instructions1.png";
-import instruction1 from "../../images/cognitive_games/BrainSwitch/instructions2.png";
+import instruction2 from "../../images/cognitive_games/BrainSwitch/Instructions1.png";
+import instruction1 from "../../images/cognitive_games/BrainSwitch/Instructions2.png";
 
 // Game images
 import q1image from "../../images/cognitive_games/BrainSwitch/image1.jpeg";
