@@ -1,8 +1,5 @@
 "use client";
-import { MockInterview } from "@/utils/schema";
 import { useUser } from "@clerk/nextjs";
-import { desc, eq } from "drizzle-orm";
-import { db } from "@/utils/db";
 import React, { useEffect, useState, useCallback } from "react";
 import InterviewItemCard from "./InterviewItemCard";
 
@@ -19,18 +16,17 @@ const InterviewList = () => {
             setIsLoading(true);
             setError(null);
             
-            const result = await db
-                .select()
-                .from(MockInterview)
-                .where(
-                    eq(
-                        MockInterview.createdBy,
-                        user.primaryEmailAddress.emailAddress
-                    )
-                )
-                .orderBy(desc(MockInterview.id));
+            const response = await fetch(`http://localhost:3000/api/interview/user/${user.primaryEmailAddress.emailAddress}`);
+            const data = await response.json();
             
-            setInterviewList(result);
+            console.log('API Response:', data);
+            console.log('User Email:', user.primaryEmailAddress.emailAddress);
+            
+            if (data.success) {
+                setInterviewList(data.interviews);
+            } else {
+                setError(data.message || 'Failed to load interviews');
+            }
         } catch (err) {
             console.error('Failed to fetch interviews:', err);
             setError('Failed to load interviews. Please try again later.');
@@ -83,7 +79,7 @@ const InterviewList = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {interviewList.map((interview) => (
                         <InterviewItemCard
-                            key={interview.id}
+                            key={interview.mockId}
                             interview={interview}
                         />
                     ))}

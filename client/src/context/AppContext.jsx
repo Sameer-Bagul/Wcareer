@@ -11,37 +11,66 @@ export const AppContextProvider = (props) => {
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
     const [isLoggedin, setIsLoggedin] = useState(false);
     const [userData, setUserData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     const getAuthState = async () => {
         try {
+            console.log('Checking authentication state...');
             const {data} = await axios.get(backendUrl + '/api/auth/is-auth');
+            console.log('Auth response:', data);
             if (data.success) {
                 setIsLoggedin(true);
-                getUserData();
+                await getUserData();
+            } else {
+                setIsLoggedin(false);
+            }
+        } catch (error) {
+            console.log('Auth check failed:', error);
+            setIsLoggedin(false);
+            toast.error(error.message);
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
+    const getUserData = async () => {
+        try {
+            console.log('Fetching user data...');
+            const {data} = await axios.get(backendUrl + '/api/user/data');
+            console.log('User data response:', data);
+            if (data.success) {
+                setUserData(data.userData);
+            } else {
+                setUserData(null);
+                toast.error(data.message);
+            }
+        } catch (error) {
+            console.log('User data fetch failed:', error);
+            setUserData(null);
+            toast.error(error.message);
+        }
+    }
+
+    const logout = async () => {
+        try {
+            const {data} = await axios.post(backendUrl + '/api/auth/logout');
+            if (data.success) {
+                setIsLoggedin(false);
+                setUserData(null);
+                toast.success('Logged out successfully');
             }
         } catch (error) {
             toast.error(error.message);
         }
     }
 
-    const getUserData = async () => {
-        try {
-            const {data} = await axios.get(backendUrl + '/api/user/data');
-            data.success ? setUserData(data.userData) : toast.error(data.message);
-        } catch (error) {
-            toast.error(error.message);
-        }
-    }
-
-    useEffect(()=> {
-        getAuthState();
-    }, [])
-
     const value = {
         backendUrl,
         isLoggedin, setIsLoggedin,
         userData, setUserData,
-        getUserData
+        getUserData,
+        logout,
+        isLoading
     }
     
     return (

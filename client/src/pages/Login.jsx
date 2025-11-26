@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { assets } from '../assets/assets';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
@@ -8,12 +8,22 @@ import { toast } from 'react-toastify';
 const Login = () => {
 
   const navigate = useNavigate();
-  const {backendUrl, setIsLoggedin, getUserData } = useContext(AppContext);
+  const {backendUrl, setIsLoggedin, getUserData, setUserData, isLoggedin, userData } = useContext(AppContext);
   
   const [state, setState] = useState('Sign Up');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    if (isLoggedin && userData) {
+      if (userData.isAccountVerified) {
+        navigate('/dashboard');
+      } else {
+        navigate('/email-verify');
+      }
+    }
+  }, [isLoggedin, userData, navigate]);
 
   const onSubmitHandler = async (e) => {
     try {
@@ -25,9 +35,14 @@ const Login = () => {
         const {data} = await axios.post( backendUrl + '/api/auth/register', {name, email, password});
         
         if (data.success) {
+          // After successful registration, get user data and redirect to email verification
+          await getUserData();
           setIsLoggedin(true);
-          getUserData();
-          navigate('/'); // yaha pe redirect karna hai home page pe but bad me ham sidha dashboard ko navigate kr denge
+          // Clear form
+          setName('');
+          setEmail('');
+          setPassword('');
+          navigate('/email-verify');
         } else {
           toast.error(data.message);
         }
@@ -37,8 +52,12 @@ const Login = () => {
         
         if (data.success) {
           setIsLoggedin(true);
-          getUserData();
-          navigate('/'); // yaha pe redirect karna hai home page pe but bad me ham sidha dashboard ko navigate kr denge
+          // After successful login, get user data and check verification status
+          await getUserData();
+          // The navigation logic will be handled by the useEffect in the component or App.jsx
+          // Clear form
+          setEmail('');
+          setPassword('');
         } else {
           toast.error(data.message);
         }
@@ -133,7 +152,7 @@ const Login = () => {
           </p>
         ) : (
           <p className="text-gray-400 text-center text-xs mt-4">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <span 
               onClick={() => setState('Sign Up')}
               className='text-blue-400 cursor-pointer hover:underline'>

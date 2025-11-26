@@ -17,13 +17,18 @@ const Interview = ({ params }) => {
     }, []);
 
     const getInterviewDetails = async () => {
-        const result = await db
-            .select()
-            .from(MockInterview)
-            .where(eq(MockInterview.mockId, params.interviewId));
-
-        // console.log(result);
-        setInterviewData(result[0]);
+        try {
+            const response = await fetch(`http://localhost:3000/api/interview/${params.interviewId}`);
+            const data = await response.json();
+            
+            if (data.success) {
+                setInterviewData(data.interviewData);
+            } else {
+                console.error('Failed to fetch interview details');
+            }
+        } catch (error) {
+            console.error('Error fetching interview details:', error);
+        }
     };
     return (
         <div className="my-10">

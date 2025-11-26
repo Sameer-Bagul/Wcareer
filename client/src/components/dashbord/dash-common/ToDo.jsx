@@ -35,7 +35,7 @@ export default function ToDo() {
       <div className="flex flex-col space-y-4 bg-[#F8F7F3] shadow-md shadow-[#bfbcb2] rounded-2xl p-4">
       <h1 className="text-2xl font-bold mb-4">To-Do List</h1>
         {tasks.map((task, index) => (
-          <div key={index} className="relative flex items-center justify-between p-3 bg-white shadow-sm rounded-xl transition transform hover:scale-105">
+          <div key={index} className="relative flex items-center justify-between p-3 bg-white shadow-sm rounded-xl transition transform hover:scale-101">
             <label className="flex items-center space-x-3 cursor-pointer">
               <input 
                 type="checkbox" 

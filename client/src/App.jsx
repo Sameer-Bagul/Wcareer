@@ -11,6 +11,11 @@ import Login from "./pages/Login";
 import EmailVerify from "./pages/EmailVerify";
 import ResetPassword from "./pages/ResetPassword";
 
+// Interview Pages
+import InterviewSetup from "./pages/InterviewSetup";
+import InterviewStart from "./pages/InterviewStart";
+import InterviewFeedback from "./pages/InterviewFeedback";
+
 // Dashboard Pages
 import Dashboard from "./pages/dashboard/Dashboard";
 import Interview from "./pages/dashboard/Interview";
@@ -37,26 +42,27 @@ import BecomeMentor from './pages/BecomeMentor';
 
 function App() {
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.weglot.com/weglot.min.js";
-    script.async = true;
-    script.onload = () => {
-      if (window.Weglot) {
-        window.Weglot.initialize({
-          api_key: "wg_adae7d07b5dd72b9121d9f4d8ac2b6db1",
-        });
-      }
-    };
-    document.body.appendChild(script);
+    // Weglot translation script - commented out as project is deleted
+    // const script = document.createElement("script");
+    // script.src = "https://cdn.weglot.com/weglot.min.js";
+    // script.async = true;
+    // script.onload = () => {
+    //   if (window.Weglot) {
+    //     window.Weglot.initialize({
+    //       api_key: "wg_adae7d07b5dd72b9121d9f4d8ac2b6db1",
+    //     });
+    //   }
+    // };
+    // document.body.appendChild(script);
   }, []);
 
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith("/dashboard");
+  const showSidebar = location.pathname.startsWith("/dashboard") || location.pathname.startsWith("/interview");
 
   return (
     <div className="flex h-screen bg-[#F8F7F3] text-black-100 overflow-hidden">
-      {/* Show Sidebar only on Dashboard pages */}
-      {isDashboard && <Sidebar />}
+      {/* Show Sidebar on Dashboard and Interview pages */}
+      {showSidebar && <Sidebar />}
       <div className="flex-1 min-w-0 overflow-auto">
         <Routes>
           {/* Public Pages (No Sidebar) */}
@@ -81,6 +87,12 @@ function App() {
           />
           
           <Route path="/dashboard/interview" element={<Interview />} />
+          
+          {/* Interview Routes - Main Interview Page */}
+          <Route path="/interview" element={<Interview />} />
+          <Route path="/interview/:mockId" element={<InterviewSetup />} />
+          <Route path="/interview/:mockId/start" element={<InterviewStart />} />
+          <Route path="/interview/:mockId/feedback" element={<InterviewFeedback />} />
         
           <Route path="/dashboard/mentor-mania" element={<MentorMania />} />
           <Route path="/dashboard/resume-analyzer" element={<ResumeAnalyzer />} />
@@ -98,7 +110,7 @@ function App() {
             element={<TechnicalTestInterface />}
           />
           <Route
-            path="dashboard/technical-test-result"
+            path="/dashboard/technical-test-result"
             element={<TechnicalTestResultPage />}
           />
           <Route path="/dashboard/cognitive-test" element={<CognitiveTest />} />

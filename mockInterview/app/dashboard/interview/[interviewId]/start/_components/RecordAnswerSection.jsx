@@ -69,34 +69,37 @@ const RecordAnswerSection = ({
   const updateUserAnswer = async () => {
     console.log(userAnswer);
     setIsLoading(true);
-    const feedbackPrompt = `Question: ${mockInterviewQuestion[activeQuestionIndex]?.question}, User Answer: ${userAnswer}, depends on question and user answer for the given interview question, Please give us rating for answer and feedback as area of improvement if any, in just 3 to 5 lines to improve it in JSON format with rating field(1-10) and feedback field`;
 
-    const result = await chatSession.sendMessage(feedbackPrompt);
-    const mockJSONResponse = result.response
-      .text()
-      .replace("```json", "")
-      .replace("```", "");
-    console.log(mockJSONResponse);
-    const jsonFeedbackResponse = JSON.parse(mockJSONResponse);
+    try {
+      const response = await fetch('http://localhost:3000/api/interview/answer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          mockId: interviewData?.mockId,
+          question: mockInterviewQuestion[activeQuestionIndex]?.question,
+          correctAns: mockInterviewQuestion[activeQuestionIndex]?.answer,
+          userAns: userAnswer,
+          userEmail: user?.primaryEmailAddress?.emailAddress,
+        }),
+      });
 
-    const response = await db.insert(UserAnswer).values({
-      mockId: interviewData?.mockId,
-      question: mockInterviewQuestion[activeQuestionIndex]?.question,
-      correctAns: mockInterviewQuestion[activeQuestionIndex]?.answer,
-      userAns: userAnswer,
-      feedback: jsonFeedbackResponse?.feedback,
-      rating: jsonFeedbackResponse?.rating,
-      userEmail: user?.primaryEmailAddress?.emailAddress,
-      createdAt: moment().format("DD-MM-yyyy"),
-    });
+      const data = await response.json();
 
-    if (response) {
-      toast("User Answer Recorded Successfully");
-      setUserAnswer("");
-      setResults([]); // Clear results after recording
+      if (data.success) {
+        toast("User Answer Recorded Successfully");
+        setUserAnswer("");
+        setResults([]);
+      } else {
+        toast("Failed to save answer");
+      }
+    } catch (error) {
+      console.error("Error saving answer:", error);
+      toast("Error saving answer");
+    } finally {
+      setIsLoading(false);
     }
-    setResults([]); // Clear results after recording
-    setIsLoading(false);
   };
 
   if (!isSupported) {

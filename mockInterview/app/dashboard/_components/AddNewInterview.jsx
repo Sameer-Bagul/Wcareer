@@ -43,33 +43,31 @@ const AddNewInterview = () => {
         setIsLoading(true);
 
         try {
-            const inputPrompt = `Job Position:${formData.jobPosition}, Job Description: ${formData.jobDesc}, Years of Experience: ${formData.jobExperience}.
-            By analyzing the above information, give me ${process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT} interview questions with answers in json format, give questions and answers as field in json. just return the array`;
-
-            const result = await chatSession.sendMessage(inputPrompt);
-            const mockJSONResponse = result.response.text()
-                .replace("```json", "")
-                .replace("```", "");
-
-            const resp = await db
-                .insert(MockInterview)
-                .values({
-                    mockId: uuidv4(),
-                    jsonMockResp: mockJSONResponse,
+            const response = await fetch('http://localhost:3000/api/interview/create', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     jobPosition: formData.jobPosition,
                     jobDesc: formData.jobDesc,
-                    jobExperience: Number(formData.jobExperience),
-                    createdBy: user?.primaryEmailAddress?.emailAddress,
-                    createdAt: moment().format("DD-MM-yyyy"),
-                })
-                .returning({ mockId: MockInterview.mockId });
+                    jobExperience: formData.jobExperience,
+                    userEmail: user?.primaryEmailAddress?.emailAddress,
+                }),
+            });
 
-            if (resp?.[0]?.mockId) {
+            const data = await response.json();
+
+            if (data.success && data.mockId) {
                 setOpenDialog(false);
-                router.push(`/dashboard/interview/${resp[0].mockId}`);
+                router.push(`/dashboard/interview/${data.mockId}`);
+            } else {
+                console.error('Failed to create interview:', data.message);
+                alert('Failed to create interview. Please try again.');
             }
         } catch (error) {
             console.error("Error:", error);
+            alert('An error occurred. Please try again.');
         } finally {
             setIsLoading(false);
         }

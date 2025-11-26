@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { BarChart2, Brain, FileText } from "lucide-react";
 import Header from "../../components/dashbord/dash-common/Header";
 import SkillProgressChart from "../../components/dashbord/dash-common/SkillProgressChart"; 
@@ -33,9 +33,15 @@ const AssessmentCards = [
 ];
 
 const Dashboard = () => {
+  const { isLoggedin, userData, isLoading } = useContext(AppContext);
+  const navigate = useNavigate();
 
-  const { userData } = useContext(AppContext);
- 
+  useEffect(() => {
+    // Temporarily disabled authentication check for testing
+    console.log('Dashboard loaded, isLoading:', isLoading, 'isLoggedin:', isLoggedin, 'userData:', userData);
+  }, [isLoggedin, userData, isLoading]);
+
+  // Temporarily disabled authentication checks for testing
   const title = `welcome ${userData ? userData.name : "Buddy"}!`; 
 
   const capitalizeFirstLetter = (string) => {

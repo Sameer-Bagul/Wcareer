@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import connectDB from './config/mongodb.js';  // always provide the .js extension when importing a file that is not a package or a module.
 import authRouter from './routes/authRoutes.js';
 import userRouter from './routes/userRoutes.js';
+import interviewRouter from './routes/interviewRoutes.js';
 
 const app = express();
 // const port = process.env.PORT || 4001;
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
+app.use('/api/interview', interviewRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

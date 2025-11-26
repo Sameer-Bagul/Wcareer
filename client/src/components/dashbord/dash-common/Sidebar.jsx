@@ -14,10 +14,12 @@ import {
   FileUser,
   MessageSquare,
   Settings,
+  LogOut,
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../../../context/AppContext";
 import "./custom-scrollbar.css";
 
 const SIDEBAR_ITEMS = [
@@ -57,7 +59,7 @@ const SIDEBAR_ITEMS = [
     name: "Interview",
     icon: Briefcase,
     color: "#532D69",
-    href: "http://localhost:3001/dashboard",
+    href: "/interview",
   },
   {
     name: "Resume Analyzer",
@@ -88,6 +90,13 @@ const SIDEBAR_ITEMS = [
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const { logout } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
 
   return (
     <motion.div
@@ -131,6 +140,34 @@ const Sidebar = () => {
             </Link>
           ))}
         </nav>
+
+        {/* Logout Button */}
+        <div className="mt-auto mb-4">
+          <motion.button
+            onClick={handleLogout}
+            className="flex items-center p-4 text-sm font-medium rounded-lg hover:bg-red-100 transition-colors w-full text-red-600 hover:text-red-700"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <LogOut
+              size={20}
+              style={{ color: '#dc2626', minWidth: "20px" }}
+            />
+            <AnimatePresence>
+              {isSidebarOpen && (
+                <motion.span
+                  className="ml-4 whitespace-nowrap"
+                  initial={{ opacity: 0, width: 0 }}
+                  animate={{ opacity: 1, width: "auto" }}
+                  exit={{ opacity: 0, width: 0 }}
+                  transition={{ duration: 0.2, delay: 0.3 }}
+                >
+                  Logout
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </div>
       </div>
     </motion.div>
   );

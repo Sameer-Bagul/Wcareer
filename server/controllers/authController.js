@@ -46,17 +46,35 @@ export const register = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000, // The cookie will expire in 7 days
     });
 
+    // Generate and send OTP for email verification
+    const otp = String(Math.floor(100000 + Math.random() * 900000));
+    user.verifyOtp = otp; // Set the verify OTP for the user
+    user.verifyOtpExpireAt = Date.now() + 24 * 60 * 60 * 1000; // Set the expiry time for the OTP to 1 Day
+    await user.save(); // Save the user again with OTP
+
+    const otpMailOption = {
+      from: process.env.SENDER_EMAIL,
+      to: email,
+      subject: "Verify your account",
+      html: EMAIL_VERIFY_TEMPLATE.replace("{{otp}}", otp).replace(
+        "{{email}}",
+        user.email
+      ),
+    };
+
+    await transporter.sendMail(otpMailOption); // Send the OTP email to the user
+
     // sending welcome Email to the user
-    const mailOptions = {
+    const welcomeMailOptions = {
       from: process.env.SENDER_EMAIL,
       to: email,
       subject: "Welcome to MERN Auth",
       text: `Welcome to MERN Auth, ${name}. You have successfully registered on our platform.`,
     };
 
-    await transporter.sendMail(mailOptions); // Send the email to the user
+    await transporter.sendMail(welcomeMailOptions); // Send the welcome email to the user
 
-    res.json({ success: true, message: "User registered successfully" }); // Send a success response
+    res.json({ success: true, message: "User registered successfully. Please check your email for OTP verification." }); // Send a success response
   } catch (error) {
     res.json({ success: false, message: error.message }); // Send an error response if something goes wrong
   }
@@ -167,15 +185,14 @@ export const verifyEmail = async (req, res) => {
   }
 };
 
-export const isAuthenticated = async (req, res, next) => {
-  try {
-    return res.json({ success: true, message: "User authenticated" }); // Send a success response if the user is authenticated
-  } catch (error) {
-    res.json({ success: false, message: error.message });
-  }
-};
-
-// send password reset OTP
+export const isAuthenticated = async (req, res) => {
+    try {
+        // Since userAuth middleware is used, if we reach here, user is authenticated
+        return res.json({ success: true, message: "User authenticated" });
+    } catch (error) {
+        res.json({ success: false, message: error.message });
+    }
+};// send password reset OTP
 export const sendResetOtp = async (req, res) => {
   const email = req.body.email; // Destructure the email from the request body
 
