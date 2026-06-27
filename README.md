@@ -20,6 +20,8 @@
 
 ## 📸 Project Media
 
+![App Screenshot](fullpage.png)
+
 ![App Screenshot](wcarrer.png)
 
 *(Add screenshots of the AI Mock Interview interface, Resume Wizard, and Career Roadmap here)*
