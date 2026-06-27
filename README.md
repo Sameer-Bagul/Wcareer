@@ -22,7 +22,7 @@
 
 ![App Screenshot](fullpage.png)
 
-![App Screenshot](wcarrer.png)
+![App Screenshot](./wcareer.png)
 
 *(Add screenshots of the AI Mock Interview interface, Resume Wizard, and Career Roadmap here)*
 
